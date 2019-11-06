@@ -1,11 +1,8 @@
 ﻿using System;
-using System.CodeDom; //test
-using System.CodeDom.Compiler; //test
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO; //test
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,17 +29,23 @@ namespace sloanTaxCalculator
         {
             ApplyTaxes();
             subtotal = GetSubtotalSum();
-            occTax.CalculateCityRateAmount(subtotal);
+
+            //--> Calculate & Display the occ subtotal
+            occTax.CalculateCityRateAmount(subtotal); //--> Move into one function? private void CalculateTaxes(Taxes taxes)
             occTax.CalculateStateRateAmount(subtotal);
             occTax.CalculateLocalRateAmount(subtotal);
             DisplayOccSectionMath();
-
             subtotal += occTax.CalculateTotalTaxAmount();
+
+            //--> Calculate & Display the sales tax
             salesTax.CalculateCityRateAmount(subtotal);
             salesTax.CalculateStateRateAmount(subtotal);
             salesTax.CalculateLocalRateAmount(subtotal);
-
             DisplaySubtotalSectionMath();
+
+            //--> Calculate & Display the delivery tax
+
+            //--> Calculate & Display the beverage tax
         }
 
         private void DisplayOccSectionMath()
