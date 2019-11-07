@@ -26,6 +26,13 @@ namespace sloanTaxCalculator
 
         public decimal LocalTaxRate { get; set; }
 
+        public void CalculateTaxes(decimal subtotal)
+        {
+            CalculateCityRateAmount(subtotal);
+            CalculateLocalRateAmount(subtotal);
+            CalculateStateRateAmount(subtotal);
+        }
+
         public void CalculateCityRateAmount(decimal subtotal)
         {
             CityTaxAmountUnrounded = subtotal * CityTaxRate;
