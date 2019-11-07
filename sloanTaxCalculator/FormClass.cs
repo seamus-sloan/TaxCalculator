@@ -29,17 +29,18 @@ namespace sloanTaxCalculator
             BaseTab.Text = "Calculator";
             CalculationTab.Text = "Calculations";
             
-            salesTax = new Taxes();
+            salesTax = new Taxes("Sales Tax");
             occTax = new Taxes();
             bevTax = new Taxes();
             delivTax = new Taxes();
 
-            ApplyTaxes();
+            SalesCityTxt.Text = salesTax.CityTaxRate.ToString();
+            SetTaxes();
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            ApplyTaxes();
+            SetTaxes();
             SalesSubtotal = GetSum(SubtotalPricesTxt);
             BeverageSubtotal = GetSum(BevPricesTxt);
             DeliverySubtotal = GetSum(DeliveryFeesTxt);
@@ -84,6 +85,11 @@ namespace sloanTaxCalculator
                 + salesTax.CalculateTotalTaxAmount()
                 + delivTax.CalculateTotalTaxAmount()
                 + bevTax.CalculateTotalTaxAmount()).ToString();
+        }
+
+        private void DisplaySalesTaxes()
+        {
+            
         }
 
         private void DisplayOccSectionMath(decimal subtotal)
@@ -143,7 +149,7 @@ namespace sloanTaxCalculator
             SubtotalBevTotalLbl.Text = "Taxed Subtotal: " + subtotal + " + " + bevTax.CalculateTotalTaxAmount().ToString() + " = " + (subtotal + bevTax.CalculateTotalTaxAmount()).ToString();
         }
 
-        private void ApplyTaxes()
+        private void SetTaxes()
         {
             try { salesTax.CityTaxRate = decimal.Parse(SalesCityTxt.Text) / 100; }
             catch (FormatException) { salesTax.CityTaxRate = 0; }

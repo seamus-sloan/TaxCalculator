@@ -8,6 +8,42 @@ namespace sloanTaxCalculator
 {
     class Taxes
     {
+        public string[] lines;
+        public string test;
+
+        // Check for folder
+        // if not there, create directory
+        // put in documents
+        // Check for file
+        // if not there, create file
+
+        // Read file
+        // Get line matching TaxType
+        // Ignore up to ':' and split line on ',' for tax rates
+
+
+        public Taxes(string TaxType="")
+        {
+            string[] taxRates;
+            string TextFile = @"C:\sloanSavedTaxRates\TaxRates.txt";
+            if (System.IO.File.Exists(TextFile) && TaxType != "")
+            {
+                lines = System.IO.File.ReadAllLines(TextFile);
+                foreach (string line in lines)
+                {
+                    if (line.Contains(TaxType))
+                    {
+                        test = line.Replace(TaxType + ": ", "");
+                        taxRates = test.Split(',');
+                        CityTaxRate = decimal.Parse(taxRates[0]);
+                        StateTaxRate = decimal.Parse(taxRates[1]);
+                        LocalTaxRate = decimal.Parse(taxRates[2]);
+                    }
+                }
+            }
+
+        }
+
         public decimal CityTaxAmount { get; private set; }
 
         public decimal StateTaxAmount { get; private set; }
