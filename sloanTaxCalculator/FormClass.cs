@@ -30,11 +30,23 @@ namespace sloanTaxCalculator
             CalculationTab.Text = "Calculations";
             
             salesTax = new Taxes("Sales Tax");
-            occTax = new Taxes();
-            bevTax = new Taxes();
-            delivTax = new Taxes();
+            occTax = new Taxes("OCC Tax");
+            bevTax = new Taxes("Bev Tax");
+            delivTax = new Taxes("Delivery Tax");
 
-            SalesCityTxt.Text = salesTax.CityTaxRate.ToString();
+            SalesCityTxt.Text = salesTax.CityTaxRate.ToString("G29");
+            SalesStateTxt.Text = salesTax.StateTaxRate.ToString("G29");
+            SalesLocalTxt.Text = salesTax.LocalTaxRate.ToString("G29");
+            OccCityTxt.Text = occTax.CityTaxRate.ToString("G29");
+            OccStateTxt.Text = occTax.StateTaxRate.ToString("G29");
+            OccLocalTxt.Text = occTax.LocalTaxRate.ToString("G29");
+            BevCityTxt.Text = bevTax.CityTaxRate.ToString("G29");
+            BevStateTxt.Text = bevTax.StateTaxRate.ToString("G29");
+            BevLocalTxt.Text = bevTax.LocalTaxRate.ToString("G29");
+            DeliveryCityTxt.Text = delivTax.CityTaxRate.ToString("G29");
+            DeliveryStateTxt.Text = delivTax.StateTaxRate.ToString("G29");
+            DeliveryLocalTxt.Text = delivTax.LocalTaxRate.ToString("G29");
+
             SetTaxes();
         }
 
@@ -248,6 +260,32 @@ namespace sloanTaxCalculator
             DeliveryCityTxt.Text = "";
             DeliveryStateTxt.Text = "";
             DeliveryLocalTxt.Text = "";
+        }
+
+        private void SaveTaxRates()
+        {
+            SetTaxes();
+            salesTax.DeleteSavedTaxRates();
+            salesTax.SaveTaxRates();
+            bevTax.SaveTaxRates();
+            occTax.SaveTaxRates();
+            delivTax.SaveTaxRates();
+        }
+
+        private void TaxCalculatorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Would you like to save your tax rates?", "Save Tax Rates?", MessageBoxButtons.YesNoCancel);
+            switch (dialogResult)
+            {
+                case DialogResult.Yes:
+                    SaveTaxRates();
+                    break;
+                case DialogResult.No:
+                    break;
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+            }
         }
     }
 }

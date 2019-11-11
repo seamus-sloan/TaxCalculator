@@ -1238,6 +1238,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TaxCalculatorForm";
             this.Text = "sloanTaxCalculator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TaxCalculatorForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
