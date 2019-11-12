@@ -12,6 +12,7 @@ namespace sloanTaxCalculator
 {
     public partial class TaxCalculatorForm : Form
     {
+        private const string APP_VERSION = "1.0.3";
         private Taxes salesTax;
         private Taxes occTax;
         private Taxes bevTax;
@@ -29,6 +30,8 @@ namespace sloanTaxCalculator
         private decimal TaxableSubtotal = 0;
         private decimal DisplayableTaxableSubtotal = 0;
         private decimal NontaxableSubtotal = 0;
+        private bool PennyRounding = false;
+        private bool ZeroTotal = false;
 
         public TaxCalculatorForm()
         {
@@ -66,6 +69,7 @@ namespace sloanTaxCalculator
             TipLocalTxt.Text = tipTax.LocalTaxRate.ToString("G29");
 
             SetTaxes();
+            this.Text = "sloanTaxCalculator - v" + APP_VERSION;
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
@@ -147,11 +151,24 @@ namespace sloanTaxCalculator
             ReceiptOccTaxActualLbl.Text = occTax.CalculateTotalTaxAmount().ToString();
             ReceiptSalesTaxActualLbl.Text = (salesTax.CalculateTotalTaxAmount() + bevTax.CalculateTotalTaxAmount()).ToString();
 
-            ReceiptTotalActualLbl.Text = (TaxableSubtotal + NontaxableSubtotal 
-                + occTax.CalculateTotalTaxAmount()
-                + salesTax.CalculateTotalTaxAmount()
-                + delivTax.CalculateTotalTaxAmount()
-                + bevTax.CalculateTotalTaxAmount()).ToString();
+            decimal Total = TaxableSubtotal + NontaxableSubtotal + TipSubtotal
+                    + occTax.CalculateTotalTaxAmount()
+                    + salesTax.CalculateTotalTaxAmount()
+                    + bevTax.CalculateTotalTaxAmount()
+                    + delivTax.CalculateTotalTaxAmount()
+                    + servTax.CalculateTotalTaxAmount()
+                    + smallTax.CalculateTotalTaxAmount()
+                    + tipTax.CalculateTotalTaxAmount();
+
+            if (ZeroTotal)
+                Total = Total - BeverageSubtotal - SalesSubtotal - NontaxableSubtotal;
+
+            ReceiptTotalActualLbl.Text = Total.ToString();
+
+            if (PennyRounding)
+            {
+                ReceiptPennyRoundingActualLbl.Text = (Math.Round(Total * 20) / 20).ToString();
+            }
         }
 
         private void DisplayOccSectionMath(decimal subtotal)
@@ -252,57 +269,45 @@ namespace sloanTaxCalculator
             SubtotalSmallTotalLbl.Text = "Taxed Subtotal: " + subtotal + " + " + smallTax.CalculateTotalTaxAmount().ToString() + " = " + (subtotal + smallTax.CalculateTotalTaxAmount()).ToString();
         }
 
+        private decimal SetTax(string TaxRateAmount, decimal DefaultTaxRate = 0.0M)
+        {
+            if(decimal.TryParse(TaxRateAmount, out decimal amount))
+            {
+                if (amount > 0)
+                    return (amount / 100);
+            }
+            return DefaultTaxRate;
+        }
 
         private void SetTaxes()
         {
-            try { salesTax.CityTaxRate = decimal.Parse(SalesCityTxt.Text) / 100; }
-            catch (FormatException) { salesTax.CityTaxRate = 0; }
-            try { salesTax.StateTaxRate = decimal.Parse(SalesStateTxt.Text) / 100; }
-            catch (FormatException) { salesTax.StateTaxRate = 0; }
-            try { salesTax.LocalTaxRate = decimal.Parse(SalesLocalTxt.Text) / 100; }
-            catch (FormatException) { salesTax.LocalTaxRate = 0; }
+            salesTax.CityTaxRate =  SetTax(SalesCityTxt.Text);
+            salesTax.StateTaxRate = SetTax(SalesStateTxt.Text);
+            salesTax.LocalTaxRate = SetTax(SalesLocalTxt.Text);
 
-            try { occTax.CityTaxRate = decimal.Parse(OccCityTxt.Text) / 100; }
-            catch (FormatException) { occTax.CityTaxRate = 0; }
-            try { occTax.StateTaxRate = decimal.Parse(OccStateTxt.Text) / 100; }
-            catch (FormatException) { occTax.StateTaxRate = 0; }
-            try { occTax.LocalTaxRate = decimal.Parse(OccLocalTxt.Text) / 100; }
-            catch (FormatException) { occTax.LocalTaxRate = 0; }
+            occTax.CityTaxRate =    SetTax(OccCityTxt.Text);
+            occTax.StateTaxRate =   SetTax(OccStateTxt.Text);
+            occTax.LocalTaxRate =   SetTax(OccLocalTxt.Text);
 
-            try { bevTax.CityTaxRate = decimal.Parse(BevCityTxt.Text) / 100; }
-            catch (FormatException) { bevTax.CityTaxRate = 0; }
-            try { bevTax.StateTaxRate = decimal.Parse(BevStateTxt.Text) / 100; }
-            catch (FormatException) { bevTax.StateTaxRate = 0; }
-            try { bevTax.LocalTaxRate = decimal.Parse(BevLocalTxt.Text) / 100; }
-            catch (FormatException) { bevTax.LocalTaxRate = 0; }
+            bevTax.CityTaxRate =    SetTax(BevCityTxt.Text);
+            bevTax.StateTaxRate =   SetTax(BevStateTxt.Text);
+            bevTax.LocalTaxRate =   SetTax(BevLocalTxt.Text);
 
-            try { delivTax.CityTaxRate = decimal.Parse(DeliveryFeeCityTxt.Text) / 100; }
-            catch (FormatException) { delivTax.CityTaxRate = 0; }
-            try { delivTax.StateTaxRate = decimal.Parse(DeliveryFeeStateTxt.Text) / 100; }
-            catch (FormatException) { delivTax.StateTaxRate = 0; }
-            try { delivTax.LocalTaxRate = decimal.Parse(DeliveryFeeLocalTxt.Text) / 100; }
-            catch (FormatException) { delivTax.LocalTaxRate = 0; }
+            delivTax.CityTaxRate =  SetTax(DeliveryFeeCityTxt.Text);
+            delivTax.StateTaxRate = SetTax(DeliveryFeeStateTxt.Text);
+            delivTax.LocalTaxRate = SetTax(DeliveryFeeLocalTxt.Text);
 
-            try { servTax.CityTaxRate = decimal.Parse(ServiceFeeCityTxt.Text) / 100; }
-            catch (FormatException) { servTax.CityTaxRate = 0; }
-            try { servTax.StateTaxRate = decimal.Parse(ServiceFeeStateTxt.Text) / 100; }
-            catch (FormatException) { servTax.StateTaxRate = 0; }
-            try { servTax.LocalTaxRate = decimal.Parse(ServiceFeeLocalTxt.Text) / 100; }
-            catch (FormatException) { servTax.LocalTaxRate = 0; }
+            servTax.CityTaxRate =   SetTax(ServiceFeeCityTxt.Text);
+            servTax.StateTaxRate =  SetTax(ServiceFeeStateTxt.Text);
+            servTax.LocalTaxRate =  SetTax(ServiceFeeLocalTxt.Text);
 
-            try { smallTax.CityTaxRate = decimal.Parse(SmallOrderFeeCityTxt.Text) / 100; }
-            catch (FormatException) { smallTax.CityTaxRate = 0; }
-            try { smallTax.StateTaxRate = decimal.Parse(SmallOrderFeeStateTxt.Text) / 100; }
-            catch (FormatException) { smallTax.StateTaxRate = 0; }
-            try { smallTax.LocalTaxRate = decimal.Parse(SmallOrderFeeLocalTxt.Text) / 100; }
-            catch (FormatException) { smallTax.LocalTaxRate = 0; }
+            smallTax.CityTaxRate =  SetTax(SmallOrderFeeCityTxt.Text);
+            smallTax.StateTaxRate = SetTax(SmallOrderFeeStateTxt.Text);
+            smallTax.LocalTaxRate = SetTax(SmallOrderFeeLocalTxt.Text);
 
-            try { tipTax.CityTaxRate = decimal.Parse(TipCityTxt.Text) / 100; }
-            catch (FormatException) { tipTax.CityTaxRate = 0; }
-            try { tipTax.StateTaxRate = decimal.Parse(TipStateTxt.Text) / 100; }
-            catch (FormatException) { tipTax.StateTaxRate = 0; }
-            try { tipTax.LocalTaxRate = decimal.Parse(TipLocalTxt.Text) / 100; }
-            catch (FormatException) { tipTax.LocalTaxRate = 0; }
+            tipTax.CityTaxRate =    SetTax(TipCityTxt.Text);
+            tipTax.StateTaxRate =   SetTax(TipStateTxt.Text);
+            tipTax.LocalTaxRate =   SetTax(TipLocalTxt.Text);
         }
 
         //--> Sloan: Get the total of all prices in a field
@@ -402,6 +407,18 @@ namespace sloanTaxCalculator
                     e.Cancel = true;
                     break;
             }
+        }
+
+        private void PennyRoundingChk_CheckedChanged(object sender, EventArgs e)
+        {
+            PennyRounding = !PennyRounding;
+            ReceiptPennyRoundedLbl.Visible = PennyRounding;
+            ReceiptPennyRoundingActualLbl.Visible = PennyRounding;
+        }
+
+        private void ZeroSubtotalChk_CheckedChanged(object sender, EventArgs e)
+        {
+            ZeroTotal = !ZeroTotal;
         }
     }
 }

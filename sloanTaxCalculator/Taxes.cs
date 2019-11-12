@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,36 +9,39 @@ namespace sloanTaxCalculator
 {
     class Taxes
     {
-        public string name;
-        public string[] lines;
-        public string test;
-        public static string MyDocumentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        public static string TaxRatesDirectory = MyDocumentsDirectory+ "/sloanSavedTaxRates";
-        public static string TaxRatesFile = TaxRatesDirectory + "/TaxRates.txt";
+        private string _name;
+        private string[] lines;
+        // new
+        private static readonly char DIR_SEP = Path.DirectorySeparatorChar;
+        private static readonly string TAX_RATES_DIR = "sloanSavedTaxRates";
+        private static readonly string TAX_RATES_FILE = "TaxRates.txt";
+        private static readonly string _baseDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        private static readonly string _taxRatesDirectory = _baseDirectory + DIR_SEP + TAX_RATES_DIR;
+        private static readonly string _taxRatesFile = _taxRatesDirectory + DIR_SEP + TAX_RATES_FILE;
 
 
-        public Taxes(string TaxType="")
+        public Taxes(string TaxType = "")
         {
-            name = TaxType;
+            _name = TaxType;
             ReadTaxRates();
         }
 
         private void ReadTaxRates()
         {
-            if (System.IO.Directory.Exists(MyDocumentsDirectory))
+            if (Directory.Exists(_baseDirectory))
             {
-                if (System.IO.Directory.Exists(TaxRatesDirectory))
+                if (Directory.Exists(_taxRatesDirectory))
                 {
-                    if (System.IO.File.Exists(TaxRatesFile))
+                    if (File.Exists(_taxRatesFile))
                     {
-                        lines = System.IO.File.ReadAllLines(TaxRatesFile);
+                        lines = File.ReadAllLines(_taxRatesFile);
                         foreach (string line in lines)
                         {
                             string[] taxRates;
-                            if (line.Contains(name))
+                            if (line.Contains(_name))
                             {
-                                test = line.Replace(name + ": ", "");
-                                taxRates = test.Split(',');
+                                string temp = line.Replace(_name + ": ", "");
+                                taxRates = temp.Split(',');
                                 CityTaxRate = decimal.Parse(taxRates[0]);
                                 StateTaxRate = decimal.Parse(taxRates[1]);
                                 LocalTaxRate = decimal.Parse(taxRates[2]);
@@ -47,14 +51,16 @@ namespace sloanTaxCalculator
                     else
                     {
                         // NO TAX RATES FILE
-                        System.IO.File.Create(TaxRatesFile);
+                        var tempFile = File.Create(_taxRatesFile);
+                        tempFile.Close();
                     }
                 }
                 else
                 {
                     // NO TAX RATES DIRECTORY
-                    System.IO.Directory.CreateDirectory(TaxRatesDirectory);
-                    System.IO.File.Create(TaxRatesFile);
+                    Directory.CreateDirectory(_taxRatesDirectory);
+                    var tempFile = File.Create(_taxRatesFile);
+                    tempFile.Close();
                 }
             }
             else
@@ -66,12 +72,30 @@ namespace sloanTaxCalculator
 
         public void DeleteSavedTaxRates()
         {
-            System.IO.File.Delete(TaxRatesFile);
+            if (File.Exists(_taxRatesFile))
+            {
+                try { File.Delete(_taxRatesFile); }
+                catch (IOException ioex) { throw ioex; }
+            }
         }
 
         public void SaveTaxRates()
         {
-            System.IO.File.AppendAllText(TaxRatesFile, Environment.NewLine + name + ": " + CityTaxRate * 100 + ", " + StateTaxRate * 100 + ", " + LocalTaxRate * 100);
+            if (Directory.Exists(Path.GetDirectoryName(_taxRatesDirectory)))
+            {
+                try
+                {
+                    string TextToAppend = Environment.NewLine + _name + ": " + CityTaxRate * 100 + ", " + StateTaxRate * 100 + ", " + LocalTaxRate * 100;
+                    if (File.Exists(_taxRatesFile))
+                        File.AppendAllText(_taxRatesFile, TextToAppend);
+                    else
+                        File.WriteAllText(_taxRatesFile, TextToAppend);
+                }
+                catch (IOException ioex)
+                {
+                    throw ioex;
+                }
+            }
         }
 
         public decimal CityTaxAmount { get; private set; }
