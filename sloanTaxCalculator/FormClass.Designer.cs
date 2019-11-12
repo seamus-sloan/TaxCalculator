@@ -161,6 +161,36 @@
             this.RoundedCityBevLbl = new System.Windows.Forms.Label();
             this.UnroundedStateBevLbl = new System.Windows.Forms.Label();
             this.DeliveryCalculationsTab = new System.Windows.Forms.TabPage();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.RoundedStateTipLbl = new System.Windows.Forms.Label();
+            this.TipCalculationSection = new System.Windows.Forms.Label();
+            this.SubtotalTipTotalLbl = new System.Windows.Forms.Label();
+            this.UnroundedLocalTipLbl = new System.Windows.Forms.Label();
+            this.TipTotalLbl = new System.Windows.Forms.Label();
+            this.UnroundedCityTipLbl = new System.Windows.Forms.Label();
+            this.RoundedLocalTipLbl = new System.Windows.Forms.Label();
+            this.RoundedCityTipLbl = new System.Windows.Forms.Label();
+            this.UnroundedStateTipLbl = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.RoundedStateSmallLbl = new System.Windows.Forms.Label();
+            this.SmallOrderFeeCalculationSectionLbl = new System.Windows.Forms.Label();
+            this.SubtotalSmallTotalLbl = new System.Windows.Forms.Label();
+            this.UnroundedLocalSmallLbl = new System.Windows.Forms.Label();
+            this.SmallTotalLbl = new System.Windows.Forms.Label();
+            this.UnroundedCitySmallLbl = new System.Windows.Forms.Label();
+            this.RoundedLocalSmallLbl = new System.Windows.Forms.Label();
+            this.RoundedCitySmallLbl = new System.Windows.Forms.Label();
+            this.UnroundedStateSmallLbl = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.RoundedStateServLbl = new System.Windows.Forms.Label();
+            this.ServiceFeeCalculationSectionLbl = new System.Windows.Forms.Label();
+            this.SubtotalServTotalLbl = new System.Windows.Forms.Label();
+            this.UnroundedLocalServLbl = new System.Windows.Forms.Label();
+            this.ServTotalLbl = new System.Windows.Forms.Label();
+            this.UnroundedCityServLbl = new System.Windows.Forms.Label();
+            this.RoundedLocalServLbl = new System.Windows.Forms.Label();
+            this.RoundedCityServLbl = new System.Windows.Forms.Label();
+            this.UnroundedStateServLbl = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.RoundedStateDelivLbl = new System.Windows.Forms.Label();
             this.DeliveryFeeCalculationSectionLbl = new System.Windows.Forms.Label();
@@ -171,36 +201,6 @@
             this.RoundedLocalDelivLbl = new System.Windows.Forms.Label();
             this.RoundedCityDelivLbl = new System.Windows.Forms.Label();
             this.UnroundedStateDelivLbl = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ServiceFeeCalculationSectionLbl = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.SmallOrderFeeCalculationSectionLbl = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.TipCalculationSection = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.SubtotalCalculationPanel.SuspendLayout();
             this.TabController.SuspendLayout();
@@ -217,10 +217,10 @@
             this.SalesCalculationTab.SuspendLayout();
             this.panel9.SuspendLayout();
             this.DeliveryCalculationsTab.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // SubtotalPricesTxt
@@ -512,9 +512,9 @@
             this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 538);
+            this.panel4.Location = new System.Drawing.Point(0, 438);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(925, 4);
+            this.panel4.Size = new System.Drawing.Size(617, 4);
             this.panel4.TabIndex = 1;
             this.panel4.Visible = false;
             // 
@@ -1551,6 +1551,312 @@
             this.DeliveryCalculationsTab.Text = "Calculations - Delivery";
             this.DeliveryCalculationsTab.UseVisualStyleBackColor = true;
             // 
+            // panel15
+            // 
+            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel15.Controls.Add(this.RoundedStateTipLbl);
+            this.panel15.Controls.Add(this.TipCalculationSection);
+            this.panel15.Controls.Add(this.SubtotalTipTotalLbl);
+            this.panel15.Controls.Add(this.UnroundedLocalTipLbl);
+            this.panel15.Controls.Add(this.TipTotalLbl);
+            this.panel15.Controls.Add(this.UnroundedCityTipLbl);
+            this.panel15.Controls.Add(this.RoundedLocalTipLbl);
+            this.panel15.Controls.Add(this.RoundedCityTipLbl);
+            this.panel15.Controls.Add(this.UnroundedStateTipLbl);
+            this.panel15.Location = new System.Drawing.Point(311, 206);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(292, 194);
+            this.panel15.TabIndex = 14;
+            // 
+            // RoundedStateTipLbl
+            // 
+            this.RoundedStateTipLbl.AutoSize = true;
+            this.RoundedStateTipLbl.Location = new System.Drawing.Point(5, 81);
+            this.RoundedStateTipLbl.Name = "RoundedStateTipLbl";
+            this.RoundedStateTipLbl.Size = new System.Drawing.Size(105, 13);
+            this.RoundedStateTipLbl.TabIndex = 0;
+            this.RoundedStateTipLbl.Text = "RoundedStateTipLbl";
+            // 
+            // TipCalculationSection
+            // 
+            this.TipCalculationSection.AutoSize = true;
+            this.TipCalculationSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TipCalculationSection.Location = new System.Drawing.Point(5, 4);
+            this.TipCalculationSection.Name = "TipCalculationSection";
+            this.TipCalculationSection.Size = new System.Drawing.Size(139, 13);
+            this.TipCalculationSection.TabIndex = 1;
+            this.TipCalculationSection.Text = "Tip Calculation Section";
+            // 
+            // SubtotalTipTotalLbl
+            // 
+            this.SubtotalTipTotalLbl.AutoSize = true;
+            this.SubtotalTipTotalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubtotalTipTotalLbl.Location = new System.Drawing.Point(5, 162);
+            this.SubtotalTipTotalLbl.Name = "SubtotalTipTotalLbl";
+            this.SubtotalTipTotalLbl.Size = new System.Drawing.Size(118, 13);
+            this.SubtotalTipTotalLbl.TabIndex = 2;
+            this.SubtotalTipTotalLbl.Text = "SubtotalTipTotalLbl";
+            // 
+            // UnroundedLocalTipLbl
+            // 
+            this.UnroundedLocalTipLbl.AutoSize = true;
+            this.UnroundedLocalTipLbl.Location = new System.Drawing.Point(5, 110);
+            this.UnroundedLocalTipLbl.Name = "UnroundedLocalTipLbl";
+            this.UnroundedLocalTipLbl.Size = new System.Drawing.Size(115, 13);
+            this.UnroundedLocalTipLbl.TabIndex = 3;
+            this.UnroundedLocalTipLbl.Text = "UnroundedLocalTipLbl";
+            // 
+            // TipTotalLbl
+            // 
+            this.TipTotalLbl.AutoSize = true;
+            this.TipTotalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TipTotalLbl.Location = new System.Drawing.Point(5, 149);
+            this.TipTotalLbl.Name = "TipTotalLbl";
+            this.TipTotalLbl.Size = new System.Drawing.Size(71, 13);
+            this.TipTotalLbl.TabIndex = 4;
+            this.TipTotalLbl.Text = "TipTotalLbl";
+            // 
+            // UnroundedCityTipLbl
+            // 
+            this.UnroundedCityTipLbl.AutoSize = true;
+            this.UnroundedCityTipLbl.Location = new System.Drawing.Point(5, 30);
+            this.UnroundedCityTipLbl.Name = "UnroundedCityTipLbl";
+            this.UnroundedCityTipLbl.Size = new System.Drawing.Size(106, 13);
+            this.UnroundedCityTipLbl.TabIndex = 5;
+            this.UnroundedCityTipLbl.Text = "UnroundedCityTipLbl";
+            // 
+            // RoundedLocalTipLbl
+            // 
+            this.RoundedLocalTipLbl.AutoSize = true;
+            this.RoundedLocalTipLbl.Location = new System.Drawing.Point(5, 123);
+            this.RoundedLocalTipLbl.Name = "RoundedLocalTipLbl";
+            this.RoundedLocalTipLbl.Size = new System.Drawing.Size(106, 13);
+            this.RoundedLocalTipLbl.TabIndex = 6;
+            this.RoundedLocalTipLbl.Text = "RoundedLocalTipLbl";
+            // 
+            // RoundedCityTipLbl
+            // 
+            this.RoundedCityTipLbl.AutoSize = true;
+            this.RoundedCityTipLbl.Location = new System.Drawing.Point(5, 43);
+            this.RoundedCityTipLbl.Name = "RoundedCityTipLbl";
+            this.RoundedCityTipLbl.Size = new System.Drawing.Size(97, 13);
+            this.RoundedCityTipLbl.TabIndex = 7;
+            this.RoundedCityTipLbl.Text = "RoundedCityTipLbl";
+            // 
+            // UnroundedStateTipLbl
+            // 
+            this.UnroundedStateTipLbl.AutoSize = true;
+            this.UnroundedStateTipLbl.Location = new System.Drawing.Point(5, 68);
+            this.UnroundedStateTipLbl.Name = "UnroundedStateTipLbl";
+            this.UnroundedStateTipLbl.Size = new System.Drawing.Size(114, 13);
+            this.UnroundedStateTipLbl.TabIndex = 8;
+            this.UnroundedStateTipLbl.Text = "UnroundedStateTipLbl";
+            // 
+            // panel14
+            // 
+            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel14.Controls.Add(this.RoundedStateSmallLbl);
+            this.panel14.Controls.Add(this.SmallOrderFeeCalculationSectionLbl);
+            this.panel14.Controls.Add(this.SubtotalSmallTotalLbl);
+            this.panel14.Controls.Add(this.UnroundedLocalSmallLbl);
+            this.panel14.Controls.Add(this.SmallTotalLbl);
+            this.panel14.Controls.Add(this.UnroundedCitySmallLbl);
+            this.panel14.Controls.Add(this.RoundedLocalSmallLbl);
+            this.panel14.Controls.Add(this.RoundedCitySmallLbl);
+            this.panel14.Controls.Add(this.UnroundedStateSmallLbl);
+            this.panel14.Location = new System.Drawing.Point(6, 206);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(292, 194);
+            this.panel14.TabIndex = 13;
+            // 
+            // RoundedStateSmallLbl
+            // 
+            this.RoundedStateSmallLbl.AutoSize = true;
+            this.RoundedStateSmallLbl.Location = new System.Drawing.Point(5, 81);
+            this.RoundedStateSmallLbl.Name = "RoundedStateSmallLbl";
+            this.RoundedStateSmallLbl.Size = new System.Drawing.Size(115, 13);
+            this.RoundedStateSmallLbl.TabIndex = 0;
+            this.RoundedStateSmallLbl.Text = "RoundedStateSmallLbl";
+            // 
+            // SmallOrderFeeCalculationSectionLbl
+            // 
+            this.SmallOrderFeeCalculationSectionLbl.AutoSize = true;
+            this.SmallOrderFeeCalculationSectionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SmallOrderFeeCalculationSectionLbl.Location = new System.Drawing.Point(5, 4);
+            this.SmallOrderFeeCalculationSectionLbl.Name = "SmallOrderFeeCalculationSectionLbl";
+            this.SmallOrderFeeCalculationSectionLbl.Size = new System.Drawing.Size(211, 13);
+            this.SmallOrderFeeCalculationSectionLbl.TabIndex = 1;
+            this.SmallOrderFeeCalculationSectionLbl.Text = "Small Order Fee Calculation Section";
+            // 
+            // SubtotalSmallTotalLbl
+            // 
+            this.SubtotalSmallTotalLbl.AutoSize = true;
+            this.SubtotalSmallTotalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubtotalSmallTotalLbl.Location = new System.Drawing.Point(5, 162);
+            this.SubtotalSmallTotalLbl.Name = "SubtotalSmallTotalLbl";
+            this.SubtotalSmallTotalLbl.Size = new System.Drawing.Size(130, 13);
+            this.SubtotalSmallTotalLbl.TabIndex = 2;
+            this.SubtotalSmallTotalLbl.Text = "SubtotalSmallTotalLbl";
+            // 
+            // UnroundedLocalSmallLbl
+            // 
+            this.UnroundedLocalSmallLbl.AutoSize = true;
+            this.UnroundedLocalSmallLbl.Location = new System.Drawing.Point(5, 110);
+            this.UnroundedLocalSmallLbl.Name = "UnroundedLocalSmallLbl";
+            this.UnroundedLocalSmallLbl.Size = new System.Drawing.Size(125, 13);
+            this.UnroundedLocalSmallLbl.TabIndex = 3;
+            this.UnroundedLocalSmallLbl.Text = "UnroundedLocalSmallLbl";
+            // 
+            // SmallTotalLbl
+            // 
+            this.SmallTotalLbl.AutoSize = true;
+            this.SmallTotalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SmallTotalLbl.Location = new System.Drawing.Point(5, 149);
+            this.SmallTotalLbl.Name = "SmallTotalLbl";
+            this.SmallTotalLbl.Size = new System.Drawing.Size(83, 13);
+            this.SmallTotalLbl.TabIndex = 4;
+            this.SmallTotalLbl.Text = "SmallTotalLbl";
+            // 
+            // UnroundedCitySmallLbl
+            // 
+            this.UnroundedCitySmallLbl.AutoSize = true;
+            this.UnroundedCitySmallLbl.Location = new System.Drawing.Point(5, 30);
+            this.UnroundedCitySmallLbl.Name = "UnroundedCitySmallLbl";
+            this.UnroundedCitySmallLbl.Size = new System.Drawing.Size(116, 13);
+            this.UnroundedCitySmallLbl.TabIndex = 5;
+            this.UnroundedCitySmallLbl.Text = "UnroundedCitySmallLbl";
+            // 
+            // RoundedLocalSmallLbl
+            // 
+            this.RoundedLocalSmallLbl.AutoSize = true;
+            this.RoundedLocalSmallLbl.Location = new System.Drawing.Point(5, 123);
+            this.RoundedLocalSmallLbl.Name = "RoundedLocalSmallLbl";
+            this.RoundedLocalSmallLbl.Size = new System.Drawing.Size(116, 13);
+            this.RoundedLocalSmallLbl.TabIndex = 6;
+            this.RoundedLocalSmallLbl.Text = "RoundedLocalSmallLbl";
+            // 
+            // RoundedCitySmallLbl
+            // 
+            this.RoundedCitySmallLbl.AutoSize = true;
+            this.RoundedCitySmallLbl.Location = new System.Drawing.Point(5, 43);
+            this.RoundedCitySmallLbl.Name = "RoundedCitySmallLbl";
+            this.RoundedCitySmallLbl.Size = new System.Drawing.Size(107, 13);
+            this.RoundedCitySmallLbl.TabIndex = 7;
+            this.RoundedCitySmallLbl.Text = "RoundedCitySmallLbl";
+            // 
+            // UnroundedStateSmallLbl
+            // 
+            this.UnroundedStateSmallLbl.AutoSize = true;
+            this.UnroundedStateSmallLbl.Location = new System.Drawing.Point(5, 68);
+            this.UnroundedStateSmallLbl.Name = "UnroundedStateSmallLbl";
+            this.UnroundedStateSmallLbl.Size = new System.Drawing.Size(124, 13);
+            this.UnroundedStateSmallLbl.TabIndex = 8;
+            this.UnroundedStateSmallLbl.Text = "UnroundedStateSmallLbl";
+            // 
+            // panel13
+            // 
+            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel13.Controls.Add(this.RoundedStateServLbl);
+            this.panel13.Controls.Add(this.ServiceFeeCalculationSectionLbl);
+            this.panel13.Controls.Add(this.SubtotalServTotalLbl);
+            this.panel13.Controls.Add(this.UnroundedLocalServLbl);
+            this.panel13.Controls.Add(this.ServTotalLbl);
+            this.panel13.Controls.Add(this.UnroundedCityServLbl);
+            this.panel13.Controls.Add(this.RoundedLocalServLbl);
+            this.panel13.Controls.Add(this.RoundedCityServLbl);
+            this.panel13.Controls.Add(this.UnroundedStateServLbl);
+            this.panel13.Location = new System.Drawing.Point(311, 6);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(292, 194);
+            this.panel13.TabIndex = 12;
+            // 
+            // RoundedStateServLbl
+            // 
+            this.RoundedStateServLbl.AutoSize = true;
+            this.RoundedStateServLbl.Location = new System.Drawing.Point(5, 81);
+            this.RoundedStateServLbl.Name = "RoundedStateServLbl";
+            this.RoundedStateServLbl.Size = new System.Drawing.Size(112, 13);
+            this.RoundedStateServLbl.TabIndex = 0;
+            this.RoundedStateServLbl.Text = "RoundedStateServLbl";
+            // 
+            // ServiceFeeCalculationSectionLbl
+            // 
+            this.ServiceFeeCalculationSectionLbl.AutoSize = true;
+            this.ServiceFeeCalculationSectionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServiceFeeCalculationSectionLbl.Location = new System.Drawing.Point(5, 4);
+            this.ServiceFeeCalculationSectionLbl.Name = "ServiceFeeCalculationSectionLbl";
+            this.ServiceFeeCalculationSectionLbl.Size = new System.Drawing.Size(189, 13);
+            this.ServiceFeeCalculationSectionLbl.TabIndex = 1;
+            this.ServiceFeeCalculationSectionLbl.Text = "Service Fee Calculation Section";
+            // 
+            // SubtotalServTotalLbl
+            // 
+            this.SubtotalServTotalLbl.AutoSize = true;
+            this.SubtotalServTotalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubtotalServTotalLbl.Location = new System.Drawing.Point(5, 162);
+            this.SubtotalServTotalLbl.Name = "SubtotalServTotalLbl";
+            this.SubtotalServTotalLbl.Size = new System.Drawing.Size(126, 13);
+            this.SubtotalServTotalLbl.TabIndex = 2;
+            this.SubtotalServTotalLbl.Text = "SubtotalServTotalLbl";
+            // 
+            // UnroundedLocalServLbl
+            // 
+            this.UnroundedLocalServLbl.AutoSize = true;
+            this.UnroundedLocalServLbl.Location = new System.Drawing.Point(5, 110);
+            this.UnroundedLocalServLbl.Name = "UnroundedLocalServLbl";
+            this.UnroundedLocalServLbl.Size = new System.Drawing.Size(122, 13);
+            this.UnroundedLocalServLbl.TabIndex = 3;
+            this.UnroundedLocalServLbl.Text = "UnroundedLocalServLbl";
+            // 
+            // ServTotalLbl
+            // 
+            this.ServTotalLbl.AutoSize = true;
+            this.ServTotalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServTotalLbl.Location = new System.Drawing.Point(5, 149);
+            this.ServTotalLbl.Name = "ServTotalLbl";
+            this.ServTotalLbl.Size = new System.Drawing.Size(79, 13);
+            this.ServTotalLbl.TabIndex = 4;
+            this.ServTotalLbl.Text = "ServTotalLbl";
+            // 
+            // UnroundedCityServLbl
+            // 
+            this.UnroundedCityServLbl.AutoSize = true;
+            this.UnroundedCityServLbl.Location = new System.Drawing.Point(5, 30);
+            this.UnroundedCityServLbl.Name = "UnroundedCityServLbl";
+            this.UnroundedCityServLbl.Size = new System.Drawing.Size(113, 13);
+            this.UnroundedCityServLbl.TabIndex = 5;
+            this.UnroundedCityServLbl.Text = "UnroundedCityServLbl";
+            // 
+            // RoundedLocalServLbl
+            // 
+            this.RoundedLocalServLbl.AutoSize = true;
+            this.RoundedLocalServLbl.Location = new System.Drawing.Point(5, 123);
+            this.RoundedLocalServLbl.Name = "RoundedLocalServLbl";
+            this.RoundedLocalServLbl.Size = new System.Drawing.Size(113, 13);
+            this.RoundedLocalServLbl.TabIndex = 6;
+            this.RoundedLocalServLbl.Text = "RoundedLocalServLbl";
+            // 
+            // RoundedCityServLbl
+            // 
+            this.RoundedCityServLbl.AutoSize = true;
+            this.RoundedCityServLbl.Location = new System.Drawing.Point(5, 43);
+            this.RoundedCityServLbl.Name = "RoundedCityServLbl";
+            this.RoundedCityServLbl.Size = new System.Drawing.Size(104, 13);
+            this.RoundedCityServLbl.TabIndex = 7;
+            this.RoundedCityServLbl.Text = "RoundedCityServLbl";
+            // 
+            // UnroundedStateServLbl
+            // 
+            this.UnroundedStateServLbl.AutoSize = true;
+            this.UnroundedStateServLbl.Location = new System.Drawing.Point(5, 68);
+            this.UnroundedStateServLbl.Name = "UnroundedStateServLbl";
+            this.UnroundedStateServLbl.Size = new System.Drawing.Size(121, 13);
+            this.UnroundedStateServLbl.TabIndex = 8;
+            this.UnroundedStateServLbl.Text = "UnroundedStateServLbl";
+            // 
             // panel10
             // 
             this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1653,319 +1959,13 @@
             this.UnroundedStateDelivLbl.TabIndex = 8;
             this.UnroundedStateDelivLbl.Text = "UnroundedStateDelivLbl";
             // 
-            // panel13
-            // 
-            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel13.Controls.Add(this.label10);
-            this.panel13.Controls.Add(this.ServiceFeeCalculationSectionLbl);
-            this.panel13.Controls.Add(this.label12);
-            this.panel13.Controls.Add(this.label13);
-            this.panel13.Controls.Add(this.label14);
-            this.panel13.Controls.Add(this.label15);
-            this.panel13.Controls.Add(this.label16);
-            this.panel13.Controls.Add(this.label17);
-            this.panel13.Controls.Add(this.label18);
-            this.panel13.Location = new System.Drawing.Point(311, 6);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(292, 194);
-            this.panel13.TabIndex = 12;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 81);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "label10";
-            // 
-            // ServiceFeeCalculationSectionLbl
-            // 
-            this.ServiceFeeCalculationSectionLbl.AutoSize = true;
-            this.ServiceFeeCalculationSectionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceFeeCalculationSectionLbl.Location = new System.Drawing.Point(5, 4);
-            this.ServiceFeeCalculationSectionLbl.Name = "ServiceFeeCalculationSectionLbl";
-            this.ServiceFeeCalculationSectionLbl.Size = new System.Drawing.Size(189, 13);
-            this.ServiceFeeCalculationSectionLbl.TabIndex = 1;
-            this.ServiceFeeCalculationSectionLbl.Text = "Service Fee Calculation Section";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(5, 162);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "label12";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 110);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "label13";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(5, 149);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 13);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "label14";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(5, 30);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 13);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "label15";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(5, 123);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 13);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "label16";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(5, 43);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 13);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "label17";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(5, 68);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 13);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "label18";
-            // 
-            // panel14
-            // 
-            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel14.Controls.Add(this.label11);
-            this.panel14.Controls.Add(this.SmallOrderFeeCalculationSectionLbl);
-            this.panel14.Controls.Add(this.label20);
-            this.panel14.Controls.Add(this.label21);
-            this.panel14.Controls.Add(this.label22);
-            this.panel14.Controls.Add(this.label23);
-            this.panel14.Controls.Add(this.label24);
-            this.panel14.Controls.Add(this.label25);
-            this.panel14.Controls.Add(this.label26);
-            this.panel14.Location = new System.Drawing.Point(6, 206);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(292, 194);
-            this.panel14.TabIndex = 13;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 81);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "label11";
-            // 
-            // SmallOrderFeeCalculationSectionLbl
-            // 
-            this.SmallOrderFeeCalculationSectionLbl.AutoSize = true;
-            this.SmallOrderFeeCalculationSectionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SmallOrderFeeCalculationSectionLbl.Location = new System.Drawing.Point(5, 4);
-            this.SmallOrderFeeCalculationSectionLbl.Name = "SmallOrderFeeCalculationSectionLbl";
-            this.SmallOrderFeeCalculationSectionLbl.Size = new System.Drawing.Size(211, 13);
-            this.SmallOrderFeeCalculationSectionLbl.TabIndex = 1;
-            this.SmallOrderFeeCalculationSectionLbl.Text = "Small Order Fee Calculation Section";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(5, 162);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(48, 13);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "label20";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(5, 110);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(41, 13);
-            this.label21.TabIndex = 3;
-            this.label21.Text = "label21";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(5, 149);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(48, 13);
-            this.label22.TabIndex = 4;
-            this.label22.Text = "label22";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(5, 30);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(41, 13);
-            this.label23.TabIndex = 5;
-            this.label23.Text = "label23";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(5, 123);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(41, 13);
-            this.label24.TabIndex = 6;
-            this.label24.Text = "label24";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 43);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 13);
-            this.label25.TabIndex = 7;
-            this.label25.Text = "label25";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(5, 68);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(41, 13);
-            this.label26.TabIndex = 8;
-            this.label26.Text = "label26";
-            // 
-            // panel15
-            // 
-            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel15.Controls.Add(this.label19);
-            this.panel15.Controls.Add(this.TipCalculationSection);
-            this.panel15.Controls.Add(this.label28);
-            this.panel15.Controls.Add(this.label29);
-            this.panel15.Controls.Add(this.label30);
-            this.panel15.Controls.Add(this.label31);
-            this.panel15.Controls.Add(this.label32);
-            this.panel15.Controls.Add(this.label33);
-            this.panel15.Controls.Add(this.label34);
-            this.panel15.Location = new System.Drawing.Point(311, 206);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(292, 194);
-            this.panel15.TabIndex = 14;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(5, 81);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 13);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "label19";
-            // 
-            // TipCalculationSection
-            // 
-            this.TipCalculationSection.AutoSize = true;
-            this.TipCalculationSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TipCalculationSection.Location = new System.Drawing.Point(5, 4);
-            this.TipCalculationSection.Name = "TipCalculationSection";
-            this.TipCalculationSection.Size = new System.Drawing.Size(139, 13);
-            this.TipCalculationSection.TabIndex = 1;
-            this.TipCalculationSection.Text = "Tip Calculation Section";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(5, 162);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(48, 13);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "label28";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(5, 110);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(41, 13);
-            this.label29.TabIndex = 3;
-            this.label29.Text = "label29";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(5, 149);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(48, 13);
-            this.label30.TabIndex = 4;
-            this.label30.Text = "label30";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(5, 30);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(41, 13);
-            this.label31.TabIndex = 5;
-            this.label31.Text = "label31";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(5, 123);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(41, 13);
-            this.label32.TabIndex = 6;
-            this.label32.Text = "label32";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(5, 43);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(41, 13);
-            this.label33.TabIndex = 7;
-            this.label33.Text = "label33";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(5, 68);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(41, 13);
-            this.label34.TabIndex = 8;
-            this.label34.Text = "label34";
-            // 
             // TaxCalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(925, 542);
+            this.ClientSize = new System.Drawing.Size(617, 442);
             this.Controls.Add(this.TabController);
             this.Controls.Add(this.panel4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2000,14 +2000,14 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.DeliveryCalculationsTab.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2157,35 +2157,35 @@
         private System.Windows.Forms.Label ReceiptSmallOrderFeeActualLbl;
         private System.Windows.Forms.Label ReceiptTipActualLbl;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label RoundedStateServLbl;
         private System.Windows.Forms.Label ServiceFeeCalculationSectionLbl;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label SubtotalServTotalLbl;
+        private System.Windows.Forms.Label UnroundedLocalServLbl;
+        private System.Windows.Forms.Label ServTotalLbl;
+        private System.Windows.Forms.Label UnroundedCityServLbl;
+        private System.Windows.Forms.Label RoundedLocalServLbl;
+        private System.Windows.Forms.Label RoundedCityServLbl;
+        private System.Windows.Forms.Label UnroundedStateServLbl;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label RoundedStateTipLbl;
         private System.Windows.Forms.Label TipCalculationSection;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label SubtotalTipTotalLbl;
+        private System.Windows.Forms.Label UnroundedLocalTipLbl;
+        private System.Windows.Forms.Label TipTotalLbl;
+        private System.Windows.Forms.Label UnroundedCityTipLbl;
+        private System.Windows.Forms.Label RoundedLocalTipLbl;
+        private System.Windows.Forms.Label RoundedCityTipLbl;
+        private System.Windows.Forms.Label UnroundedStateTipLbl;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label RoundedStateSmallLbl;
         private System.Windows.Forms.Label SmallOrderFeeCalculationSectionLbl;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label SubtotalSmallTotalLbl;
+        private System.Windows.Forms.Label UnroundedLocalSmallLbl;
+        private System.Windows.Forms.Label SmallTotalLbl;
+        private System.Windows.Forms.Label UnroundedCitySmallLbl;
+        private System.Windows.Forms.Label RoundedLocalSmallLbl;
+        private System.Windows.Forms.Label RoundedCitySmallLbl;
+        private System.Windows.Forms.Label UnroundedStateSmallLbl;
     }
 }
 

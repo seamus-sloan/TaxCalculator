@@ -89,27 +89,42 @@ namespace sloanTaxCalculator
             OccAmount = occTax.CalculateTotalTaxAmount();
 
             //--> Calculate & Display the sales tax
-            salesTax.CalculateTaxes(SalesSubtotal + OccAmount);
+            if (SalesSubtotal == 0)
+                salesTax.CalculateTaxes(0);
+            else
+                salesTax.CalculateTaxes(SalesSubtotal + OccAmount);
             DisplaySubtotalSectionMath(SalesSubtotal + OccAmount);
 
             //--> Calculate & Display the beverage tax
-            bevTax.CalculateTaxes(BeverageSubtotal + OccAmount);
+            if (BeverageSubtotal == 0)
+                bevTax.CalculateTaxes(0);
+            else
+                bevTax.CalculateTaxes(BeverageSubtotal + OccAmount);
             DisplayBeverageSectionMath(BeverageSubtotal + OccAmount);
 
             //--> Calculate & Display the delivery fee tax
-            delivTax.CalculateTaxes(DeliveryFeeSubtotal + OccAmount);
+            if (DeliveryFeeSubtotal == 0)
+                delivTax.CalculateTaxes(0);
+            else
+                delivTax.CalculateTaxes(DeliveryFeeSubtotal + OccAmount);
             DisplayDeliveryFeeSectionMath(DeliveryFeeSubtotal + OccAmount);
 
             //--> Calculate & Display the service fee tax
-            servTax.CalculateTaxes(ServiceFeeSubtotal + OccAmount);
-            //DisplayServiceFeeSectionMath(ServiceFeeSubtotal + OccAmount);
+            if (ServiceFeeSubtotal == 0)
+                servTax.CalculateTaxes(0);
+            else
+                servTax.CalculateTaxes(ServiceFeeSubtotal + OccAmount);
+            DisplayServiceFeeSectionMath(ServiceFeeSubtotal + OccAmount);
 
             //--> Calculate & Display the small order fee tax
-            smallTax.CalculateTaxes(SmallOrderFeeSubtotal + OccAmount);
-            //DisplaySmallOrderFeeSectionMath(SmallOrderFeeSubtotal + OccAmount);
+            if (SmallOrderFeeSubtotal == 0)
+                smallTax.CalculateTaxes(0);
+            else
+                smallTax.CalculateTaxes(SmallOrderFeeSubtotal + OccAmount);
+            DisplaySmallOrderFeeSectionMath(SmallOrderFeeSubtotal + OccAmount);
 
             tipTax.CalculateTaxes(TipSubtotal);
-            //DisplayTipSectionMath(TipSubtotal);
+            DisplayTipSectionMath(TipSubtotal);
 
             DisplayReceipt();
         }
@@ -124,7 +139,10 @@ namespace sloanTaxCalculator
             ReceiptServiceFeeActualLbl.Text = ServiceFeeSubtotal.ToString();
             ReceiptSmallOrderFeeActualLbl.Text = SmallOrderFeeSubtotal.ToString();
             ReceiptTipActualLbl.Text = TipSubtotal.ToString();
-            ReceiptDeliveryTaxActualLbl.Text = delivTax.CalculateTotalTaxAmount().ToString();
+            ReceiptDeliveryTaxActualLbl.Text = (delivTax.CalculateTotalTaxAmount()
+                + smallTax.CalculateTotalTaxAmount()
+                + servTax.CalculateTotalTaxAmount()
+                + tipTax.CalculateTotalTaxAmount()).ToString();
 
             ReceiptOccTaxActualLbl.Text = occTax.CalculateTotalTaxAmount().ToString();
             ReceiptSalesTaxActualLbl.Text = (salesTax.CalculateTotalTaxAmount() + bevTax.CalculateTotalTaxAmount()).ToString();
@@ -163,20 +181,6 @@ namespace sloanTaxCalculator
             SalesTotalLbl.Text = "Total Tax: " + salesTax.CalculateTotalTaxAmount().ToString();
             SubtotalSalesTotalLbl.Text = "Taxed Subtotal: " + subtotal + " + " + salesTax.CalculateTotalTaxAmount().ToString() + " = " + (subtotal + salesTax.CalculateTotalTaxAmount()).ToString();
         }
-        private void DisplayDeliveryFeeSectionMath(decimal subtotal)
-        {
-            UnroundedCityDelivLbl.Text = "Unrounded City Delivery Tax: " + subtotal + " x " + delivTax.CityTaxRate.ToString() + " = " + delivTax.CityTaxAmountUnrounded.ToString();
-            RoundedCityDelivLbl.Text = "Rounded City Delivery Tax:    " + delivTax.CityTaxAmount.ToString();
-
-            UnroundedStateDelivLbl.Text = "Unrounded State Delivery Tax: " + subtotal + " x " + delivTax.StateTaxRate.ToString() + " = " + delivTax.StateTaxAmountUnrounded.ToString();
-            RoundedStateDelivLbl.Text = "Rounded State Delivery Tax:    " + delivTax.StateTaxAmount.ToString();
-
-            UnroundedLocalDelivLbl.Text = "Unrounded Local Delivery Tax: " + subtotal + " x " + delivTax.LocalTaxRate.ToString() + " = " + delivTax.LocalTaxAmountUnrounded.ToString();
-            RoundedLocalDelivLbl.Text = "Rounded Local Delivery Tax:    " + delivTax.LocalTaxAmount.ToString();
-
-            DelivTotalLbl.Text = "Total Tax: " + delivTax.CalculateTotalTaxAmount().ToString();
-            SubtotalDelivTotalLbl.Text = "Taxed Subtotal: " + subtotal + " + " + delivTax.CalculateTotalTaxAmount().ToString() + " = " + (subtotal + delivTax.CalculateTotalTaxAmount()).ToString();
-        }
         private void DisplayBeverageSectionMath(decimal subtotal)
         {
             UnroundedCityBevLbl.Text = "Unrounded City Beverage Tax: " + subtotal + " x " + bevTax.CityTaxRate.ToString() + " = " + bevTax.CityTaxAmountUnrounded.ToString();
@@ -191,6 +195,63 @@ namespace sloanTaxCalculator
             BevTotalLbl.Text = "Total Tax: " + bevTax.CalculateTotalTaxAmount().ToString();
             SubtotalBevTotalLbl.Text = "Taxed Subtotal: " + subtotal + " + " + bevTax.CalculateTotalTaxAmount().ToString() + " = " + (subtotal + bevTax.CalculateTotalTaxAmount()).ToString();
         }
+        private void DisplayDeliveryFeeSectionMath(decimal subtotal)
+        {
+            UnroundedCityDelivLbl.Text = "Unrounded City Delivery Fee Tax: " + subtotal + " x " + delivTax.CityTaxRate.ToString() + " = " + delivTax.CityTaxAmountUnrounded.ToString();
+            RoundedCityDelivLbl.Text = "Rounded City Delivery Fee Tax:    " + delivTax.CityTaxAmount.ToString();
+
+            UnroundedStateDelivLbl.Text = "Unrounded State Delivery Fee Tax: " + subtotal + " x " + delivTax.StateTaxRate.ToString() + " = " + delivTax.StateTaxAmountUnrounded.ToString();
+            RoundedStateDelivLbl.Text = "Rounded State Delivery Fee Tax:    " + delivTax.StateTaxAmount.ToString();
+
+            UnroundedLocalDelivLbl.Text = "Unrounded Local Delivery Fee Tax: " + subtotal + " x " + delivTax.LocalTaxRate.ToString() + " = " + delivTax.LocalTaxAmountUnrounded.ToString();
+            RoundedLocalDelivLbl.Text = "Rounded Local Delivery Fee Tax:    " + delivTax.LocalTaxAmount.ToString();
+
+            DelivTotalLbl.Text = "Total Tax: " + delivTax.CalculateTotalTaxAmount().ToString();
+            SubtotalDelivTotalLbl.Text = "Taxed Subtotal: " + subtotal + " + " + delivTax.CalculateTotalTaxAmount().ToString() + " = " + (subtotal + delivTax.CalculateTotalTaxAmount()).ToString();
+        }
+        private void DisplayServiceFeeSectionMath(decimal subtotal)
+        {
+            UnroundedCityServLbl.Text = "Unrounded City Service Fee Tax: " + subtotal + " x " + servTax.CityTaxRate.ToString() + " = " + servTax.CityTaxAmountUnrounded.ToString();
+            RoundedCityServLbl.Text = "Rounded City Service Fee Tax:    " + servTax.CityTaxAmount.ToString();
+
+            UnroundedStateServLbl.Text = "Unrounded State Service Fee Tax: " + subtotal + " x " + servTax.StateTaxRate.ToString() + " = " + servTax.StateTaxAmountUnrounded.ToString();
+            RoundedStateServLbl.Text = "Rounded State Service Fee Tax:    " + servTax.StateTaxAmount.ToString();
+
+            UnroundedLocalServLbl.Text = "Unrounded Local Service Fee Tax: " + subtotal + " x " + servTax.LocalTaxRate.ToString() + " = " + servTax.LocalTaxAmountUnrounded.ToString();
+            RoundedLocalServLbl.Text = "Rounded Local Service Fee Tax:    " + servTax.LocalTaxAmount.ToString();
+
+            ServTotalLbl.Text = "Total Tax: " + servTax.CalculateTotalTaxAmount().ToString();
+            SubtotalServTotalLbl.Text = "Taxed Subtotal: " + subtotal + " + " + servTax.CalculateTotalTaxAmount().ToString() + " = " + (subtotal + servTax.CalculateTotalTaxAmount()).ToString();
+        }
+        private void DisplayTipSectionMath(decimal subtotal)
+        {
+            UnroundedCityTipLbl.Text = "Unrounded City Tip Tax: " + subtotal + " x " + tipTax.CityTaxRate.ToString() + " = " + tipTax.CityTaxAmountUnrounded.ToString();
+            RoundedCityTipLbl.Text = "Rounded City Tip Tax:    " + tipTax.CityTaxAmount.ToString();
+
+            UnroundedStateTipLbl.Text = "Unrounded State Tip Tax: " + subtotal + " x " + tipTax.StateTaxRate.ToString() + " = " + tipTax.StateTaxAmountUnrounded.ToString();
+            RoundedStateTipLbl.Text = "Rounded State Tip Tax:    " + tipTax.StateTaxAmount.ToString();
+
+            UnroundedLocalTipLbl.Text = "Unrounded Local Tip Tax: " + subtotal + " x " + tipTax.LocalTaxRate.ToString() + " = " + tipTax.LocalTaxAmountUnrounded.ToString();
+            RoundedLocalTipLbl.Text = "Rounded Local Tip Tax:    " + tipTax.LocalTaxAmount.ToString();
+
+            TipTotalLbl.Text = "Total Tax: " + tipTax.CalculateTotalTaxAmount().ToString();
+            SubtotalTipTotalLbl.Text = "Taxed Subtotal: " + subtotal + " + " + tipTax.CalculateTotalTaxAmount().ToString() + " = " + (subtotal + tipTax.CalculateTotalTaxAmount()).ToString();
+        }
+        private void DisplaySmallOrderFeeSectionMath(decimal subtotal)
+        {
+            UnroundedCitySmallLbl.Text = "Unrounded City Small Order Fee Tax: " + subtotal + " x " + smallTax.CityTaxRate.ToString() + " = " + smallTax.CityTaxAmountUnrounded.ToString();
+            RoundedCitySmallLbl.Text = "Rounded City Small Order Fee Tax:    " + smallTax.CityTaxAmount.ToString();
+
+            UnroundedStateSmallLbl.Text = "Unrounded State Small Order Fee Tax: " + subtotal + " x " + smallTax.StateTaxRate.ToString() + " = " + smallTax.StateTaxAmountUnrounded.ToString();
+            RoundedStateSmallLbl.Text = "Rounded State Small Order Fee Tax:    " + smallTax.StateTaxAmount.ToString();
+
+            UnroundedLocalSmallLbl.Text = "Unrounded Local Small Order Fee Tax: " + subtotal + " x " + smallTax.LocalTaxRate.ToString() + " = " + smallTax.LocalTaxAmountUnrounded.ToString();
+            RoundedLocalSmallLbl.Text = "Rounded Local Small Order Fee Tax:    " + smallTax.LocalTaxAmount.ToString();
+
+            SmallTotalLbl.Text = "Total Tax: " + smallTax.CalculateTotalTaxAmount().ToString();
+            SubtotalSmallTotalLbl.Text = "Taxed Subtotal: " + subtotal + " + " + smallTax.CalculateTotalTaxAmount().ToString() + " = " + (subtotal + smallTax.CalculateTotalTaxAmount()).ToString();
+        }
+
 
         private void SetTaxes()
         {
