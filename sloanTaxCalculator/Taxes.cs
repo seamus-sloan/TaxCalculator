@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace sloanTaxCalculator
 {
@@ -11,7 +7,6 @@ namespace sloanTaxCalculator
     {
         private string _name;
         private string[] lines;
-        // new
         private static readonly char DIR_SEP = Path.DirectorySeparatorChar;
         private static readonly string TAX_RATES_DIR = "sloanSavedTaxRates";
         private static readonly string TAX_RATES_FILE = "TaxRates.txt";
@@ -26,6 +21,8 @@ namespace sloanTaxCalculator
             ReadTaxRates();
         }
 
+        //--> Sloan: Used to create (if not present), read, and set
+        //           tax rates for a given tax rate
         private void ReadTaxRates()
         {
             if (Directory.Exists(_baseDirectory))
@@ -48,28 +45,24 @@ namespace sloanTaxCalculator
                             }
                         }
                     }
-                    else
+                    else // No Tax Rates File
                     {
-                        // NO TAX RATES FILE
                         var tempFile = File.Create(_taxRatesFile);
                         tempFile.Close();
                     }
                 }
-                else
+                else // No Tax Rates Directory
                 {
-                    // NO TAX RATES DIRECTORY
                     Directory.CreateDirectory(_taxRatesDirectory);
                     var tempFile = File.Create(_taxRatesFile);
                     tempFile.Close();
                 }
             }
-            else
-            {
-                // NO MYDOCUMENTS DIRECTORY
-                // Create a new error message in a popup window
-            }
         }
 
+        //--> Sloan: Only purpose of this is to delete the file and
+        //           create it again in the SaveTaxRates() function
+        //           with the updated tax rates.
         public void DeleteSavedTaxRates()
         {
             if (File.Exists(_taxRatesFile))
