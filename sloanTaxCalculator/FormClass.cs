@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace sloanTaxCalculator
 {
     public partial class TaxCalculatorForm : Form
     {
-        private const string APP_VERSION = "1.0.3";
+        private const string APP_VERSION = "1.0.4";
         private Taxes salesTax;
         private Taxes occTax;
         private Taxes bevTax;
@@ -36,7 +30,8 @@ namespace sloanTaxCalculator
         public TaxCalculatorForm()
         {
             InitializeComponent();
-            
+            Text = "sloanTaxCalculator - v" + APP_VERSION;
+
             salesTax = new Taxes("Sales Tax");
             occTax = new Taxes("OCC Tax");
             bevTax = new Taxes("Bev Tax");
@@ -69,7 +64,6 @@ namespace sloanTaxCalculator
             TipLocalTxt.Text = tipTax.LocalTaxRate.ToString("G29");
 
             SetTaxes();
-            this.Text = "sloanTaxCalculator - v" + APP_VERSION;
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
@@ -166,9 +160,7 @@ namespace sloanTaxCalculator
             ReceiptTotalActualLbl.Text = Total.ToString();
 
             if (PennyRounding)
-            {
                 ReceiptPennyRoundingActualLbl.Text = (Math.Round(Total * 20) / 20).ToString();
-            }
         }
 
         private void DisplayOccSectionMath(decimal subtotal)

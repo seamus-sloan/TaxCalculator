@@ -69,6 +69,8 @@
             this.BevPricesLbl = new System.Windows.Forms.Label();
             this.BevPricesTxt = new System.Windows.Forms.TextBox();
             this.ReceiptPanel = new System.Windows.Forms.Panel();
+            this.ReceiptPennyRoundingActualLbl = new System.Windows.Forms.Label();
+            this.ReceiptPennyRoundedLbl = new System.Windows.Forms.Label();
             this.ReceiptServiceFeeActualLbl = new System.Windows.Forms.Label();
             this.ReceiptSmallOrderFeeActualLbl = new System.Windows.Forms.Label();
             this.ReceiptTipActualLbl = new System.Windows.Forms.Label();
@@ -93,6 +95,8 @@
             this.ReceiptTaxableTotalLbl = new System.Windows.Forms.Label();
             this.ReceiptHeaderLbl = new System.Windows.Forms.Label();
             this.TaxRates = new System.Windows.Forms.TabPage();
+            this.ZeroSubtotalChk = new System.Windows.Forms.CheckBox();
+            this.PennyRoundingChk = new System.Windows.Forms.CheckBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -201,10 +205,6 @@
             this.RoundedLocalDelivLbl = new System.Windows.Forms.Label();
             this.RoundedCityDelivLbl = new System.Windows.Forms.Label();
             this.UnroundedStateDelivLbl = new System.Windows.Forms.Label();
-            this.PennyRoundingChk = new System.Windows.Forms.CheckBox();
-            this.ZeroSubtotalChk = new System.Windows.Forms.CheckBox();
-            this.ReceiptPennyRoundedLbl = new System.Windows.Forms.Label();
-            this.ReceiptPennyRoundingActualLbl = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.SubtotalCalculationPanel.SuspendLayout();
             this.TabController.SuspendLayout();
@@ -673,6 +673,27 @@
             this.ReceiptPanel.Size = new System.Drawing.Size(194, 242);
             this.ReceiptPanel.TabIndex = 23;
             // 
+            // ReceiptPennyRoundingActualLbl
+            // 
+            this.ReceiptPennyRoundingActualLbl.AutoSize = true;
+            this.ReceiptPennyRoundingActualLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReceiptPennyRoundingActualLbl.Location = new System.Drawing.Point(139, 216);
+            this.ReceiptPennyRoundingActualLbl.Name = "ReceiptPennyRoundingActualLbl";
+            this.ReceiptPennyRoundingActualLbl.Size = new System.Drawing.Size(0, 13);
+            this.ReceiptPennyRoundingActualLbl.TabIndex = 46;
+            this.ReceiptPennyRoundingActualLbl.Visible = false;
+            // 
+            // ReceiptPennyRoundedLbl
+            // 
+            this.ReceiptPennyRoundedLbl.AutoSize = true;
+            this.ReceiptPennyRoundedLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReceiptPennyRoundedLbl.Location = new System.Drawing.Point(4, 216);
+            this.ReceiptPennyRoundedLbl.Name = "ReceiptPennyRoundedLbl";
+            this.ReceiptPennyRoundedLbl.Size = new System.Drawing.Size(108, 13);
+            this.ReceiptPennyRoundedLbl.TabIndex = 45;
+            this.ReceiptPennyRoundedLbl.Text = "Rounded Amount:";
+            this.ReceiptPennyRoundedLbl.Visible = false;
+            // 
             // ReceiptServiceFeeActualLbl
             // 
             this.ReceiptServiceFeeActualLbl.AutoSize = true;
@@ -892,6 +913,28 @@
             this.TaxRates.Text = "Tax Rates";
             this.TaxRates.UseVisualStyleBackColor = true;
             // 
+            // ZeroSubtotalChk
+            // 
+            this.ZeroSubtotalChk.AutoSize = true;
+            this.ZeroSubtotalChk.Location = new System.Drawing.Point(232, 285);
+            this.ZeroSubtotalChk.Name = "ZeroSubtotalChk";
+            this.ZeroSubtotalChk.Size = new System.Drawing.Size(106, 17);
+            this.ZeroSubtotalChk.TabIndex = 12;
+            this.ZeroSubtotalChk.Text = "ZeroSubtotalChk";
+            this.ZeroSubtotalChk.UseVisualStyleBackColor = true;
+            this.ZeroSubtotalChk.CheckedChanged += new System.EventHandler(this.ZeroSubtotalChk_CheckedChanged);
+            // 
+            // PennyRoundingChk
+            // 
+            this.PennyRoundingChk.AutoSize = true;
+            this.PennyRoundingChk.Location = new System.Drawing.Point(232, 262);
+            this.PennyRoundingChk.Name = "PennyRoundingChk";
+            this.PennyRoundingChk.Size = new System.Drawing.Size(121, 17);
+            this.PennyRoundingChk.TabIndex = 11;
+            this.PennyRoundingChk.Text = "PennyRoundingChk";
+            this.PennyRoundingChk.UseVisualStyleBackColor = true;
+            this.PennyRoundingChk.CheckedChanged += new System.EventHandler(this.PennyRoundingChk_CheckedChanged);
+            // 
             // panel12
             // 
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -902,7 +945,7 @@
             this.panel12.Controls.Add(this.TipCityTxt);
             this.panel12.Controls.Add(this.TipStateTxt);
             this.panel12.Controls.Add(this.TipLocalTxt);
-            this.panel12.Location = new System.Drawing.Point(3, 250);
+            this.panel12.Location = new System.Drawing.Point(3, 262);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(195, 106);
             this.panel12.TabIndex = 10;
@@ -979,7 +1022,7 @@
             this.panel11.Controls.Add(this.SmallOrderFeeCityTxt);
             this.panel11.Controls.Add(this.SmallOrderFeeStateTxt);
             this.panel11.Controls.Add(this.SmallOrderFeeLocalTxt);
-            this.panel11.Location = new System.Drawing.Point(405, 128);
+            this.panel11.Location = new System.Drawing.Point(405, 140);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(195, 106);
             this.panel11.TabIndex = 9;
@@ -1056,7 +1099,7 @@
             this.panel8.Controls.Add(this.ServiceFeeCityTxt);
             this.panel8.Controls.Add(this.ServiceFeeStateTxt);
             this.panel8.Controls.Add(this.ServiceFeeLocalTxt);
-            this.panel8.Location = new System.Drawing.Point(204, 128);
+            this.panel8.Location = new System.Drawing.Point(204, 140);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(195, 106);
             this.panel8.TabIndex = 8;
@@ -1133,7 +1176,7 @@
             this.panel7.Controls.Add(this.BevCityTxt);
             this.panel7.Controls.Add(this.BevStateTxt);
             this.panel7.Controls.Add(this.BevLocalTxt);
-            this.panel7.Location = new System.Drawing.Point(204, 6);
+            this.panel7.Location = new System.Drawing.Point(204, 18);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(195, 106);
             this.panel7.TabIndex = 5;
@@ -1210,7 +1253,7 @@
             this.panel1.Controls.Add(this.SalesCityLbl);
             this.panel1.Controls.Add(this.SalesLocalLbl);
             this.panel1.Controls.Add(this.SalesStateLbl);
-            this.panel1.Location = new System.Drawing.Point(3, 6);
+            this.panel1.Location = new System.Drawing.Point(3, 18);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(195, 106);
             this.panel1.TabIndex = 4;
@@ -1287,7 +1330,7 @@
             this.panel2.Controls.Add(this.OccCityTxt);
             this.panel2.Controls.Add(this.OccStateTxt);
             this.panel2.Controls.Add(this.OccLocalTxt);
-            this.panel2.Location = new System.Drawing.Point(405, 6);
+            this.panel2.Location = new System.Drawing.Point(405, 18);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(195, 106);
             this.panel2.TabIndex = 6;
@@ -1364,7 +1407,7 @@
             this.panel3.Controls.Add(this.DeliveryFeeCityTxt);
             this.panel3.Controls.Add(this.DeliveryFeeStateTxt);
             this.panel3.Controls.Add(this.DeliveryFeeLocalTxt);
-            this.panel3.Location = new System.Drawing.Point(3, 128);
+            this.panel3.Location = new System.Drawing.Point(3, 140);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(195, 106);
             this.panel3.TabIndex = 7;
@@ -1967,49 +2010,6 @@
             this.UnroundedStateDelivLbl.Size = new System.Drawing.Size(123, 13);
             this.UnroundedStateDelivLbl.TabIndex = 8;
             this.UnroundedStateDelivLbl.Text = "UnroundedStateDelivLbl";
-            // 
-            // PennyRoundingChk
-            // 
-            this.PennyRoundingChk.AutoSize = true;
-            this.PennyRoundingChk.Location = new System.Drawing.Point(232, 250);
-            this.PennyRoundingChk.Name = "PennyRoundingChk";
-            this.PennyRoundingChk.Size = new System.Drawing.Size(121, 17);
-            this.PennyRoundingChk.TabIndex = 11;
-            this.PennyRoundingChk.Text = "PennyRoundingChk";
-            this.PennyRoundingChk.UseVisualStyleBackColor = true;
-            this.PennyRoundingChk.CheckedChanged += new System.EventHandler(this.PennyRoundingChk_CheckedChanged);
-            // 
-            // ZeroSubtotalChk
-            // 
-            this.ZeroSubtotalChk.AutoSize = true;
-            this.ZeroSubtotalChk.Location = new System.Drawing.Point(232, 273);
-            this.ZeroSubtotalChk.Name = "ZeroSubtotalChk";
-            this.ZeroSubtotalChk.Size = new System.Drawing.Size(106, 17);
-            this.ZeroSubtotalChk.TabIndex = 12;
-            this.ZeroSubtotalChk.Text = "ZeroSubtotalChk";
-            this.ZeroSubtotalChk.UseVisualStyleBackColor = true;
-            this.ZeroSubtotalChk.CheckedChanged += new System.EventHandler(this.ZeroSubtotalChk_CheckedChanged);
-            // 
-            // ReceiptPennyRoundedLbl
-            // 
-            this.ReceiptPennyRoundedLbl.AutoSize = true;
-            this.ReceiptPennyRoundedLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReceiptPennyRoundedLbl.Location = new System.Drawing.Point(4, 216);
-            this.ReceiptPennyRoundedLbl.Name = "ReceiptPennyRoundedLbl";
-            this.ReceiptPennyRoundedLbl.Size = new System.Drawing.Size(108, 13);
-            this.ReceiptPennyRoundedLbl.TabIndex = 45;
-            this.ReceiptPennyRoundedLbl.Text = "Rounded Amount:";
-            this.ReceiptPennyRoundedLbl.Visible = false;
-            // 
-            // ReceiptPennyRoundingActualLbl
-            // 
-            this.ReceiptPennyRoundingActualLbl.AutoSize = true;
-            this.ReceiptPennyRoundingActualLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReceiptPennyRoundingActualLbl.Location = new System.Drawing.Point(139, 216);
-            this.ReceiptPennyRoundingActualLbl.Name = "ReceiptPennyRoundingActualLbl";
-            this.ReceiptPennyRoundingActualLbl.Size = new System.Drawing.Size(0, 13);
-            this.ReceiptPennyRoundingActualLbl.TabIndex = 46;
-            this.ReceiptPennyRoundingActualLbl.Visible = false;
             // 
             // TaxCalculatorForm
             // 
