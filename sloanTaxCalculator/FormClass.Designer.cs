@@ -205,6 +205,7 @@
             this.RoundedLocalDelivLbl = new System.Windows.Forms.Label();
             this.RoundedCityDelivLbl = new System.Windows.Forms.Label();
             this.UnroundedStateDelivLbl = new System.Windows.Forms.Label();
+            this.PreferencesLbl = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.SubtotalCalculationPanel.SuspendLayout();
             this.TabController.SuspendLayout();
@@ -895,6 +896,7 @@
             // 
             // TaxRates
             // 
+            this.TaxRates.Controls.Add(this.PreferencesLbl);
             this.TaxRates.Controls.Add(this.ZeroSubtotalChk);
             this.TaxRates.Controls.Add(this.PennyRoundingChk);
             this.TaxRates.Controls.Add(this.panel12);
@@ -916,22 +918,22 @@
             // ZeroSubtotalChk
             // 
             this.ZeroSubtotalChk.AutoSize = true;
-            this.ZeroSubtotalChk.Location = new System.Drawing.Point(232, 285);
+            this.ZeroSubtotalChk.Location = new System.Drawing.Point(252, 316);
             this.ZeroSubtotalChk.Name = "ZeroSubtotalChk";
-            this.ZeroSubtotalChk.Size = new System.Drawing.Size(106, 17);
+            this.ZeroSubtotalChk.Size = new System.Drawing.Size(90, 17);
             this.ZeroSubtotalChk.TabIndex = 12;
-            this.ZeroSubtotalChk.Text = "ZeroSubtotalChk";
+            this.ZeroSubtotalChk.Text = "Zero Subtotal";
             this.ZeroSubtotalChk.UseVisualStyleBackColor = true;
             this.ZeroSubtotalChk.CheckedChanged += new System.EventHandler(this.ZeroSubtotalChk_CheckedChanged);
             // 
             // PennyRoundingChk
             // 
             this.PennyRoundingChk.AutoSize = true;
-            this.PennyRoundingChk.Location = new System.Drawing.Point(232, 262);
+            this.PennyRoundingChk.Location = new System.Drawing.Point(252, 293);
             this.PennyRoundingChk.Name = "PennyRoundingChk";
-            this.PennyRoundingChk.Size = new System.Drawing.Size(121, 17);
+            this.PennyRoundingChk.Size = new System.Drawing.Size(105, 17);
             this.PennyRoundingChk.TabIndex = 11;
-            this.PennyRoundingChk.Text = "PennyRoundingChk";
+            this.PennyRoundingChk.Text = "Penny Rounding";
             this.PennyRoundingChk.UseVisualStyleBackColor = true;
             this.PennyRoundingChk.CheckedChanged += new System.EventHandler(this.PennyRoundingChk_CheckedChanged);
             // 
@@ -2011,6 +2013,16 @@
             this.UnroundedStateDelivLbl.TabIndex = 8;
             this.UnroundedStateDelivLbl.Text = "UnroundedStateDelivLbl";
             // 
+            // PreferencesLbl
+            // 
+            this.PreferencesLbl.AutoSize = true;
+            this.PreferencesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PreferencesLbl.Location = new System.Drawing.Point(229, 277);
+            this.PreferencesLbl.Name = "PreferencesLbl";
+            this.PreferencesLbl.Size = new System.Drawing.Size(79, 13);
+            this.PreferencesLbl.TabIndex = 13;
+            this.PreferencesLbl.Text = "Preferences:";
+            // 
             // TaxCalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2243,6 +2255,7 @@
         private System.Windows.Forms.CheckBox PennyRoundingChk;
         private System.Windows.Forms.Label ReceiptPennyRoundingActualLbl;
         private System.Windows.Forms.Label ReceiptPennyRoundedLbl;
+        private System.Windows.Forms.Label PreferencesLbl;
     }
 }
 
