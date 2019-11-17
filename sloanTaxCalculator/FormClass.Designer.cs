@@ -39,12 +39,12 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.SalesTaxCalculationLbl = new System.Windows.Forms.Label();
             this.OccCalculationSectionLbl = new System.Windows.Forms.Label();
-            this.UnroundedCityOccLbl = new System.Windows.Forms.Label();
-            this.RoundedCityOccLbl = new System.Windows.Forms.Label();
-            this.RoundedStateOccLbl = new System.Windows.Forms.Label();
-            this.UnroundedStateOccLbl = new System.Windows.Forms.Label();
-            this.RoundedLocalOccLbl = new System.Windows.Forms.Label();
-            this.UnroundedLocalOccLbl = new System.Windows.Forms.Label();
+            this.SalesOccLbl = new System.Windows.Forms.Label();
+            this.BevOccLbl = new System.Windows.Forms.Label();
+            this.ServOccLbl = new System.Windows.Forms.Label();
+            this.DelivOccLbl = new System.Windows.Forms.Label();
+            this.TipOccLbl = new System.Windows.Forms.Label();
+            this.SmallOccLbl = new System.Windows.Forms.Label();
             this.OccTotalLbl = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.SubtotalSalesTotalLbl = new System.Windows.Forms.Label();
@@ -95,6 +95,7 @@
             this.ReceiptTaxableTotalLbl = new System.Windows.Forms.Label();
             this.ReceiptHeaderLbl = new System.Windows.Forms.Label();
             this.TaxRates = new System.Windows.Forms.TabPage();
+            this.PreferencesLbl = new System.Windows.Forms.Label();
             this.ZeroSubtotalChk = new System.Windows.Forms.CheckBox();
             this.PennyRoundingChk = new System.Windows.Forms.CheckBox();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -205,7 +206,6 @@
             this.RoundedLocalDelivLbl = new System.Windows.Forms.Label();
             this.RoundedCityDelivLbl = new System.Windows.Forms.Label();
             this.UnroundedStateDelivLbl = new System.Windows.Forms.Label();
-            this.PreferencesLbl = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.SubtotalCalculationPanel.SuspendLayout();
             this.TabController.SuspendLayout();
@@ -328,65 +328,65 @@
             this.OccCalculationSectionLbl.TabIndex = 1;
             this.OccCalculationSectionLbl.Text = "OCC Calculation Section";
             // 
-            // UnroundedCityOccLbl
+            // SalesOccLbl
             // 
-            this.UnroundedCityOccLbl.AutoSize = true;
-            this.UnroundedCityOccLbl.Location = new System.Drawing.Point(6, 28);
-            this.UnroundedCityOccLbl.Name = "UnroundedCityOccLbl";
-            this.UnroundedCityOccLbl.Size = new System.Drawing.Size(111, 13);
-            this.UnroundedCityOccLbl.TabIndex = 3;
-            this.UnroundedCityOccLbl.Text = "UnroundedCityOccLbl";
+            this.SalesOccLbl.AutoSize = true;
+            this.SalesOccLbl.Location = new System.Drawing.Point(6, 30);
+            this.SalesOccLbl.Name = "SalesOccLbl";
+            this.SalesOccLbl.Size = new System.Drawing.Size(67, 13);
+            this.SalesOccLbl.TabIndex = 3;
+            this.SalesOccLbl.Text = "SalesOccLbl";
             // 
-            // RoundedCityOccLbl
+            // BevOccLbl
             // 
-            this.RoundedCityOccLbl.AutoSize = true;
-            this.RoundedCityOccLbl.Location = new System.Drawing.Point(6, 41);
-            this.RoundedCityOccLbl.Name = "RoundedCityOccLbl";
-            this.RoundedCityOccLbl.Size = new System.Drawing.Size(102, 13);
-            this.RoundedCityOccLbl.TabIndex = 4;
-            this.RoundedCityOccLbl.Text = "RoundedCityOccLbl";
+            this.BevOccLbl.AutoSize = true;
+            this.BevOccLbl.Location = new System.Drawing.Point(6, 43);
+            this.BevOccLbl.Name = "BevOccLbl";
+            this.BevOccLbl.Size = new System.Drawing.Size(60, 13);
+            this.BevOccLbl.TabIndex = 4;
+            this.BevOccLbl.Text = "BevOccLbl";
             // 
-            // RoundedStateOccLbl
+            // ServOccLbl
             // 
-            this.RoundedStateOccLbl.AutoSize = true;
-            this.RoundedStateOccLbl.Location = new System.Drawing.Point(6, 79);
-            this.RoundedStateOccLbl.Name = "RoundedStateOccLbl";
-            this.RoundedStateOccLbl.Size = new System.Drawing.Size(110, 13);
-            this.RoundedStateOccLbl.TabIndex = 8;
-            this.RoundedStateOccLbl.Text = "RoundedStateOccLbl";
+            this.ServOccLbl.AutoSize = true;
+            this.ServOccLbl.Location = new System.Drawing.Point(6, 69);
+            this.ServOccLbl.Name = "ServOccLbl";
+            this.ServOccLbl.Size = new System.Drawing.Size(63, 13);
+            this.ServOccLbl.TabIndex = 8;
+            this.ServOccLbl.Text = "ServOccLbl";
             // 
-            // UnroundedStateOccLbl
+            // DelivOccLbl
             // 
-            this.UnroundedStateOccLbl.AutoSize = true;
-            this.UnroundedStateOccLbl.Location = new System.Drawing.Point(6, 66);
-            this.UnroundedStateOccLbl.Name = "UnroundedStateOccLbl";
-            this.UnroundedStateOccLbl.Size = new System.Drawing.Size(119, 13);
-            this.UnroundedStateOccLbl.TabIndex = 6;
-            this.UnroundedStateOccLbl.Text = "UnroundedStateOccLbl";
+            this.DelivOccLbl.AutoSize = true;
+            this.DelivOccLbl.Location = new System.Drawing.Point(6, 56);
+            this.DelivOccLbl.Name = "DelivOccLbl";
+            this.DelivOccLbl.Size = new System.Drawing.Size(65, 13);
+            this.DelivOccLbl.TabIndex = 6;
+            this.DelivOccLbl.Text = "DelivOccLbl";
             // 
-            // RoundedLocalOccLbl
+            // TipOccLbl
             // 
-            this.RoundedLocalOccLbl.AutoSize = true;
-            this.RoundedLocalOccLbl.Location = new System.Drawing.Point(6, 121);
-            this.RoundedLocalOccLbl.Name = "RoundedLocalOccLbl";
-            this.RoundedLocalOccLbl.Size = new System.Drawing.Size(111, 13);
-            this.RoundedLocalOccLbl.TabIndex = 7;
-            this.RoundedLocalOccLbl.Text = "RoundedLocalOccLbl";
+            this.TipOccLbl.AutoSize = true;
+            this.TipOccLbl.Location = new System.Drawing.Point(6, 95);
+            this.TipOccLbl.Name = "TipOccLbl";
+            this.TipOccLbl.Size = new System.Drawing.Size(56, 13);
+            this.TipOccLbl.TabIndex = 7;
+            this.TipOccLbl.Text = "TipOccLbl";
             // 
-            // UnroundedLocalOccLbl
+            // SmallOccLbl
             // 
-            this.UnroundedLocalOccLbl.AutoSize = true;
-            this.UnroundedLocalOccLbl.Location = new System.Drawing.Point(6, 108);
-            this.UnroundedLocalOccLbl.Name = "UnroundedLocalOccLbl";
-            this.UnroundedLocalOccLbl.Size = new System.Drawing.Size(120, 13);
-            this.UnroundedLocalOccLbl.TabIndex = 9;
-            this.UnroundedLocalOccLbl.Text = "UnroundedLocalOccLbl";
+            this.SmallOccLbl.AutoSize = true;
+            this.SmallOccLbl.Location = new System.Drawing.Point(6, 82);
+            this.SmallOccLbl.Name = "SmallOccLbl";
+            this.SmallOccLbl.Size = new System.Drawing.Size(66, 13);
+            this.SmallOccLbl.TabIndex = 9;
+            this.SmallOccLbl.Text = "SmallOccLbl";
             // 
             // OccTotalLbl
             // 
             this.OccTotalLbl.AutoSize = true;
             this.OccTotalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OccTotalLbl.Location = new System.Drawing.Point(6, 147);
+            this.OccTotalLbl.Location = new System.Drawing.Point(6, 123);
             this.OccTotalLbl.Name = "OccTotalLbl";
             this.OccTotalLbl.Size = new System.Drawing.Size(76, 13);
             this.OccTotalLbl.TabIndex = 5;
@@ -397,13 +397,13 @@
             this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.OccCalculationSectionLbl);
-            this.panel6.Controls.Add(this.UnroundedCityOccLbl);
-            this.panel6.Controls.Add(this.RoundedCityOccLbl);
+            this.panel6.Controls.Add(this.SalesOccLbl);
+            this.panel6.Controls.Add(this.BevOccLbl);
             this.panel6.Controls.Add(this.OccTotalLbl);
-            this.panel6.Controls.Add(this.UnroundedStateOccLbl);
-            this.panel6.Controls.Add(this.RoundedLocalOccLbl);
-            this.panel6.Controls.Add(this.RoundedStateOccLbl);
-            this.panel6.Controls.Add(this.UnroundedLocalOccLbl);
+            this.panel6.Controls.Add(this.DelivOccLbl);
+            this.panel6.Controls.Add(this.TipOccLbl);
+            this.panel6.Controls.Add(this.ServOccLbl);
+            this.panel6.Controls.Add(this.SmallOccLbl);
             this.panel6.Location = new System.Drawing.Point(6, 6);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(292, 194);
@@ -506,7 +506,7 @@
             this.SubtotalCalculationPanel.Controls.Add(this.RoundedLocalSalesLbl);
             this.SubtotalCalculationPanel.Controls.Add(this.RoundedCitySalesLbl);
             this.SubtotalCalculationPanel.Controls.Add(this.UnroundedStateSalesLbl);
-            this.SubtotalCalculationPanel.Location = new System.Drawing.Point(307, 6);
+            this.SubtotalCalculationPanel.Location = new System.Drawing.Point(306, 6);
             this.SubtotalCalculationPanel.Name = "SubtotalCalculationPanel";
             this.SubtotalCalculationPanel.Size = new System.Drawing.Size(292, 194);
             this.SubtotalCalculationPanel.TabIndex = 0;
@@ -914,6 +914,16 @@
             this.TaxRates.TabIndex = 1;
             this.TaxRates.Text = "Tax Rates";
             this.TaxRates.UseVisualStyleBackColor = true;
+            // 
+            // PreferencesLbl
+            // 
+            this.PreferencesLbl.AutoSize = true;
+            this.PreferencesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PreferencesLbl.Location = new System.Drawing.Point(229, 277);
+            this.PreferencesLbl.Name = "PreferencesLbl";
+            this.PreferencesLbl.Size = new System.Drawing.Size(79, 13);
+            this.PreferencesLbl.TabIndex = 13;
+            this.PreferencesLbl.Text = "Preferences:";
             // 
             // ZeroSubtotalChk
             // 
@@ -2013,16 +2023,6 @@
             this.UnroundedStateDelivLbl.TabIndex = 8;
             this.UnroundedStateDelivLbl.Text = "UnroundedStateDelivLbl";
             // 
-            // PreferencesLbl
-            // 
-            this.PreferencesLbl.AutoSize = true;
-            this.PreferencesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PreferencesLbl.Location = new System.Drawing.Point(229, 277);
-            this.PreferencesLbl.Name = "PreferencesLbl";
-            this.PreferencesLbl.Size = new System.Drawing.Size(79, 13);
-            this.PreferencesLbl.TabIndex = 13;
-            this.PreferencesLbl.Text = "Preferences:";
-            // 
             // TaxCalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2089,12 +2089,12 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label SalesTaxCalculationLbl;
         private System.Windows.Forms.Label OccCalculationSectionLbl;
-        private System.Windows.Forms.Label UnroundedCityOccLbl;
-        private System.Windows.Forms.Label RoundedCityOccLbl;
-        private System.Windows.Forms.Label RoundedStateOccLbl;
-        private System.Windows.Forms.Label UnroundedStateOccLbl;
-        private System.Windows.Forms.Label RoundedLocalOccLbl;
-        private System.Windows.Forms.Label UnroundedLocalOccLbl;
+        private System.Windows.Forms.Label SalesOccLbl;
+        private System.Windows.Forms.Label BevOccLbl;
+        private System.Windows.Forms.Label ServOccLbl;
+        private System.Windows.Forms.Label DelivOccLbl;
+        private System.Windows.Forms.Label TipOccLbl;
+        private System.Windows.Forms.Label SmallOccLbl;
         private System.Windows.Forms.Label OccTotalLbl;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label SubtotalSalesTotalLbl;

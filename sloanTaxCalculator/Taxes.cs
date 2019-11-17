@@ -109,6 +109,8 @@ namespace sloanTaxCalculator
 
         public decimal LocalTaxRate { get; set; }
 
+        public decimal OccAmount { get; set; }
+
         public void CalculateTaxes(decimal subtotal)
         {
             CalculateCityRateAmount(subtotal);

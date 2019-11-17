@@ -6,7 +6,7 @@ namespace sloanTaxCalculator
 {
     public partial class TaxCalculatorForm : Form
     {
-        private const string APP_VERSION = "1.0.4";
+        private const string APP_VERSION = "1.0.5";
         private Taxes salesTax;
         private Taxes occTax;
         private Taxes bevTax;
@@ -14,7 +14,6 @@ namespace sloanTaxCalculator
         private Taxes servTax;
         private Taxes smallTax;
         private Taxes tipTax;
-        private decimal OccAmount = 0;
         private decimal SalesSubtotal = 0;
         private decimal BeverageSubtotal = 0;
         private decimal DeliveryFeeSubtotal = 0;
@@ -80,46 +79,44 @@ namespace sloanTaxCalculator
             TaxableSubtotal = SalesSubtotal + BeverageSubtotal + DeliveryFeeSubtotal + ServiceFeeSubtotal + SmallOrderFeeSubtotal;
             DisplayableTaxableSubtotal = SalesSubtotal + BeverageSubtotal;
 
-            //--> Calculate & Display the occ subtotal
-            occTax.CalculateTaxes(TaxableSubtotal);
-            DisplayOccSectionMath(TaxableSubtotal);
-
-            OccAmount = occTax.CalculateTotalTaxAmount();
+            //--> Calculate & Display the occ subtotal for each tax rate
+            GetOccAmounts();
+            DisplayOccSectionMath();
 
             //--> Calculate & Display the sales tax
             if (SalesSubtotal == 0)
                 salesTax.CalculateTaxes(0);
             else
-                salesTax.CalculateTaxes(SalesSubtotal + OccAmount);
-            DisplaySubtotalSectionMath(SalesSubtotal + OccAmount);
+                salesTax.CalculateTaxes(SalesSubtotal + salesTax.OccAmount);
+            DisplaySubtotalSectionMath(SalesSubtotal + salesTax.OccAmount);
 
             //--> Calculate & Display the beverage tax
             if (BeverageSubtotal == 0)
                 bevTax.CalculateTaxes(0);
             else
-                bevTax.CalculateTaxes(BeverageSubtotal + OccAmount);
-            DisplayBeverageSectionMath(BeverageSubtotal + OccAmount);
+                bevTax.CalculateTaxes(BeverageSubtotal + bevTax.OccAmount);
+            DisplayBeverageSectionMath(BeverageSubtotal + bevTax.OccAmount);
 
             //--> Calculate & Display the delivery fee tax
             if (DeliveryFeeSubtotal == 0)
                 delivTax.CalculateTaxes(0);
             else
-                delivTax.CalculateTaxes(DeliveryFeeSubtotal + OccAmount);
-            DisplayDeliveryFeeSectionMath(DeliveryFeeSubtotal + OccAmount);
+                delivTax.CalculateTaxes(DeliveryFeeSubtotal + delivTax.OccAmount);
+            DisplayDeliveryFeeSectionMath(DeliveryFeeSubtotal + delivTax.OccAmount);
 
             //--> Calculate & Display the service fee tax
             if (ServiceFeeSubtotal == 0)
                 servTax.CalculateTaxes(0);
             else
-                servTax.CalculateTaxes(ServiceFeeSubtotal + OccAmount);
-            DisplayServiceFeeSectionMath(ServiceFeeSubtotal + OccAmount);
+                servTax.CalculateTaxes(ServiceFeeSubtotal + servTax.OccAmount);
+            DisplayServiceFeeSectionMath(ServiceFeeSubtotal + servTax.OccAmount);
 
             //--> Calculate & Display the small order fee tax
             if (SmallOrderFeeSubtotal == 0)
                 smallTax.CalculateTaxes(0);
             else
-                smallTax.CalculateTaxes(SmallOrderFeeSubtotal + OccAmount);
-            DisplaySmallOrderFeeSectionMath(SmallOrderFeeSubtotal + OccAmount);
+                smallTax.CalculateTaxes(SmallOrderFeeSubtotal + smallTax.OccAmount);
+            DisplaySmallOrderFeeSectionMath(SmallOrderFeeSubtotal + smallTax.OccAmount);
 
             tipTax.CalculateTaxes(TipSubtotal);
             DisplayTipSectionMath(TipSubtotal);
@@ -142,11 +139,11 @@ namespace sloanTaxCalculator
                 + servTax.CalculateTotalTaxAmount()
                 + tipTax.CalculateTotalTaxAmount()).ToString();
 
-            ReceiptOccTaxActualLbl.Text = occTax.CalculateTotalTaxAmount().ToString();
+            ReceiptOccTaxActualLbl.Text = GetTotalOccAmount().ToString();
             ReceiptSalesTaxActualLbl.Text = (salesTax.CalculateTotalTaxAmount() + bevTax.CalculateTotalTaxAmount()).ToString();
 
             decimal Total = TaxableSubtotal + NontaxableSubtotal + TipSubtotal
-                    + occTax.CalculateTotalTaxAmount()
+                    + GetTotalOccAmount()
                     + salesTax.CalculateTotalTaxAmount()
                     + bevTax.CalculateTotalTaxAmount()
                     + delivTax.CalculateTotalTaxAmount()
@@ -163,18 +160,15 @@ namespace sloanTaxCalculator
                 ReceiptPennyRoundingActualLbl.Text = (Math.Round(Total * 20) / 20).ToString();
         }
 
-        private void DisplayOccSectionMath(decimal subtotal)
+        private void DisplayOccSectionMath()
         {
-            UnroundedCityOccLbl.Text = "Unrounded City Occ Tax: " + subtotal + " x " + occTax.CityTaxRate.ToString() + " = " + occTax.CityTaxAmountUnrounded.ToString();
-            RoundedCityOccLbl.Text = "Rounded City Occ Tax:    " + occTax.CityTaxAmount.ToString();
-
-            UnroundedStateOccLbl.Text = "Unrounded State Occ Tax: " + subtotal + " x " + occTax.StateTaxRate.ToString() + " = " + occTax.StateTaxAmountUnrounded.ToString();
-            RoundedStateOccLbl.Text = "Rounded State Occ Tax:    " + occTax.StateTaxAmount.ToString();
-
-            UnroundedLocalOccLbl.Text = "Unrounded Local Occ Tax: " + subtotal + " x " + occTax.LocalTaxRate.ToString() + " = " + occTax.LocalTaxAmountUnrounded.ToString();
-            RoundedLocalOccLbl.Text = "Rounded Local Occ Tax:    " + occTax.LocalTaxAmount.ToString();
-
-            OccTotalLbl.Text = "Total Tax: " + occTax.CalculateTotalTaxAmount().ToString();
+            SalesOccLbl.Text =  "Sales OCC:    " + salesTax.OccAmount;
+            BevOccLbl.Text =    "Beverage OCC:    " + bevTax.OccAmount;
+            DelivOccLbl.Text =  "Delivery Fee OCC:    " + delivTax.OccAmount;
+            ServOccLbl.Text =   "Service Fee OCC:    " + servTax.OccAmount;
+            SmallOccLbl.Text =  "Small Order Fee Occ:    " + smallTax.OccAmount;
+            TipOccLbl.Text =    "Tip OCC:    " + tipTax.OccAmount;
+            OccTotalLbl.Text =  "Total OCC:    " + GetTotalOccAmount();
         }
         private void DisplaySubtotalSectionMath(decimal subtotal)
         {
@@ -302,6 +296,32 @@ namespace sloanTaxCalculator
             tipTax.LocalTaxRate =   SetTax(TipLocalTxt.Text);
         }
 
+        private void GetOccAmounts()
+        {
+            occTax.CalculateTaxes(SalesSubtotal);
+            salesTax.OccAmount = occTax.CalculateTotalTaxAmount();
+            occTax.CalculateTaxes(BeverageSubtotal);
+            bevTax.OccAmount = occTax.CalculateTotalTaxAmount();
+            occTax.CalculateTaxes(DeliveryFeeSubtotal);
+            delivTax.OccAmount = occTax.CalculateTotalTaxAmount();
+            occTax.CalculateTaxes(ServiceFeeSubtotal);
+            servTax.OccAmount = occTax.CalculateTotalTaxAmount();
+            occTax.CalculateTaxes(SmallOrderFeeSubtotal);
+            smallTax.OccAmount = occTax.CalculateTotalTaxAmount();
+            occTax.CalculateTaxes(TipSubtotal);
+            tipTax.OccAmount = occTax.CalculateTotalTaxAmount();
+        }
+
+        private decimal GetTotalOccAmount()
+        {
+            return  salesTax.OccAmount +
+                    bevTax.OccAmount +
+                    delivTax.OccAmount +
+                    servTax.OccAmount +
+                    smallTax.OccAmount +
+                    tipTax.OccAmount;
+        }
+        
         //--> Sloan: Get the total of all prices in a field
         private decimal GetSum(TextBox textBox)
         {
