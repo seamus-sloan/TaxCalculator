@@ -597,6 +597,7 @@
             this.TipLbl.Size = new System.Drawing.Size(25, 13);
             this.TipLbl.TabIndex = 26;
             this.TipLbl.Text = "Tip";
+            this.TipLbl.Click += new System.EventHandler(this.TipLbl_Click);
             // 
             // SmallOrderFeeLbl
             // 
@@ -608,6 +609,7 @@
             this.SmallOrderFeeLbl.Size = new System.Drawing.Size(97, 13);
             this.SmallOrderFeeLbl.TabIndex = 25;
             this.SmallOrderFeeLbl.Text = "Small Order Fee";
+            this.SmallOrderFeeLbl.Click += new System.EventHandler(this.SmallOrderFeeLbl_Click);
             // 
             // ServiceFeesLbl
             // 
@@ -619,6 +621,7 @@
             this.ServiceFeesLbl.Size = new System.Drawing.Size(75, 13);
             this.ServiceFeesLbl.TabIndex = 24;
             this.ServiceFeesLbl.Text = "Service Fee";
+            this.ServiceFeesLbl.Click += new System.EventHandler(this.ServiceFeesLbl_Click);
             // 
             // BevPricesLbl
             // 
